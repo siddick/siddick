@@ -9,11 +9,13 @@ set :default_stage, "staging"
 set :use_sudo, false
 set :bundle_exec, "cd #{current_path}; bundle exec"
 set :thin_exec, "#{bundle_exec} thin -C #{shared_path}/thin.conf"
-set :rake, "#{bundle_exec} rake"
+set :rake_exec, "#{bundle_exec} rake"
 
 namespace :deploy do
   task :assets do
-    run "#{rake} assets:precompile"
+    run "mkdir -p #{shared_path}/assets"
+    run "ln -sfT #{shared_path}/assets #{current_path}/public/assets"
+    run "#{rake_exec} assets:precompile"
   end
   task :start do
     run "#{thin_exec} start"
@@ -28,3 +30,5 @@ namespace :deploy do
     run "#{thin_exec} config -p 3000"
   end
 end
+
+after "deploy:symlink", "deploy:assets"
