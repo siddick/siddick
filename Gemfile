@@ -5,6 +5,7 @@ gem 'activeadmin'
 gem 'sass-rails',   '~> 3.1.4'
 gem 'friendly_id',  '>= 4.0.0.beta14'
 gem 'redcarpet',    '>= 2.0.0b5'
+gem 'paperclip'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
@@ -20,7 +21,7 @@ group :test, :development do
 end
 
 group :production do
-  gem 'thin', :platforms => :ruby
+  gem 'thin', :platforms => :ruby, :require => false
   gem 'pg'
   gem 'memcache-client'
 end

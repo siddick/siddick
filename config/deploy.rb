@@ -5,11 +5,11 @@ set :scm, :git
 set :user, "apps"
 set :stages, ["staging", "production"]
 set :default_stage, "staging"
-
 set :use_sudo, false
-set :bundle_exec, "cd #{current_path}; bundle exec"
-set :thin_exec, "#{bundle_exec} thin -C #{shared_path}/thin.conf"
-set :rake_exec, "#{bundle_exec} rake"
+
+def bundle_exec; "cd #{current_path}; bundle exec"; end
+def thin_exec; "#{bundle_exec} thin -C #{shared_path}/thin.conf"; end
+def rake_exec; "#{bundle_exec} rake"; end
 
 namespace :deploy do
   task :assets do
@@ -27,7 +27,7 @@ namespace :deploy do
     run "#{thin_exec} restart"
   end
   task :thin do
-    run "#{thin_exec} config -p 3000"
+    run "#{thin_exec} config -S #{shared_path}/thin.socket -e #{default_stage} -c #{current_path}"
   end
 end
 
