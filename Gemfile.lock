@@ -209,6 +209,7 @@ DEPENDENCIES
   activeadmin
   capybara
   coffee-rails (~> 3.1.1)
+  devise
   factory_girl_rails
   friendly_id (>= 4.0.0.beta14)
   jquery-rails

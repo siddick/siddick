@@ -27,7 +27,7 @@ namespace :deploy do
     run "#{thin_exec} restart"
   end
   task :thin do
-    run "#{thin_exec} config -S #{shared_path}/thin.socket -e #{default_stage} -c #{current_path}"
+    run "#{thin_exec} config -S #{shared_path}/web.socket -e #{default_stage} -c #{current_path}"
   end
 end
 
