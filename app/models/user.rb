@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   end
   
   def generate_avatar_url
-    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png"
   end
 

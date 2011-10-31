@@ -7,16 +7,11 @@ set :stages, ["staging", "production"]
 set :default_stage, "staging"
 set :use_sudo, false
 
-def bundle_exec; "cd #{current_path}; bundle exec"; end
-def thin_exec; "#{bundle_exec} thin -C #{shared_path}/thin.conf"; end
-def rake_exec; "#{bundle_exec} rake"; end
+set :bundle_exec, lambda{ "cd #{current_path}; bundle exec" } 
+set :thin_exec,   lambda{ "#{bundle_exec} thin -C #{shared_path}/thin.conf" }
+set :rake_exec,   lambda{ "#{bundle_exec} rake" }
 
 namespace :deploy do
-  task :assets do
-    run "mkdir -p #{shared_path}/assets"
-    run "ln -sfT #{shared_path}/assets #{current_path}/public/assets"
-    run "#{rake_exec} assets:precompile"
-  end
   task :start do
     run "#{thin_exec} start"
   end
@@ -27,8 +22,16 @@ namespace :deploy do
     run "#{thin_exec} restart"
   end
   task :thin do
-    run "#{thin_exec} config -S #{shared_path}/web.socket -e #{default_stage} -c #{current_path}"
+    run "thin config -S #{shared_path}/web.socket -e #{default_stage} -c #{current_path}"
   end
 end
 
-after "deploy:symlink", "deploy:assets"
+namespace :deploy do
+  namespace :assets do
+    task :create_directory do
+      run "mkdir -p #{shared_path}/assets"
+      run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
+    end
+  end
+end
+before "deploy:assets:precompile", "deploy:assets:create_directory"
