@@ -7,10 +7,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render "toolbar" %>
+    <div class="topbar"><%= render "topbar" %></div>
     <div class="container">
       <%= render "error_messages" %>
-      <%= yield %>
+      <div class="row">
+        <div class="span12 main"><%= yield %></div>
+        <div class="span4 sidebar"><%= render("sidebar")%></div>
+      </div>
     </div>
   </body>
 </html>

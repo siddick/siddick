@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
     gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png"
   end
+  
+  def admin?
+    self.is_a? AdminUser
+  end
 
 end
