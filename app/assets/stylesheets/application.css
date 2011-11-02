@@ -10,3 +10,10 @@
 body {
   padding-top: 60px;
 } 
+
+/* fix label inside the input tag. For check-box */
+.input label {
+  width: auto;
+  float: none;
+  text-align: left;
+}

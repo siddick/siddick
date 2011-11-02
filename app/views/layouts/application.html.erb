@@ -9,10 +9,14 @@
   <body>
     <div class="topbar"><%= render "topbar" %></div>
     <div class="container">
-      <%= render "error_messages" %>
       <div class="row">
-        <div class="span12 main"><%= yield %></div>
-        <div class="span4 sidebar"><%= render("sidebar")%></div>
+        <div class="span12 main">
+          <%= render "error_messages" %>
+          <%= yield %>
+        </div>
+        <div class="span4 sidebar">
+          <%= render("sidebar")%>
+        </div>
       </div>
     </div>
   </body>
