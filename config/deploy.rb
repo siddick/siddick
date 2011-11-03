@@ -26,6 +26,12 @@ namespace :deploy do
   end
 end
 
+namespace :rails do
+  task :log do
+    run "tail -f #{current_path}/log/production.log"
+  end
+end
+
 namespace :deploy do
   namespace :assets do
     task :create_directory do
