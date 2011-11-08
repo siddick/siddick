@@ -8,5 +8,6 @@ Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 
 require 'bundler/capistrano'
-require './lib/capistrano/ec2'
+$LOAD_PATH.push('./lib')
+require 'capistrano/ec2'
 require 'capistrano/ext/multistage'
