@@ -10,17 +10,17 @@
       <input type="text" placeholder="Search">
     <% end %>
     <ul class="nav secondary-nav">
-      <% if current_user.present? %>
-      <li class="dropdown" data-dropdown="dropdown">
-        <%= link_to current_user.name, "#", :class => "dropdown-toggle" %>
-        <ul class="dropdown-menu">
-          <li> <%= link_to "Account", "#"%></li>
-          <li class="divider"></li>
-          <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-        </ul>
-      </li>
+      <% if user_signed_in? %>
+        <li class="dropdown" data-dropdown="dropdown">
+          <%= link_to current_user.name, "#", :class => "dropdown-toggle", :class => "user-name" %>
+          <ul class="dropdown-menu">
+            <li> <%= link_to "Account", "#"%></li>
+            <li class="divider"></li>
+            <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </li>
       <% else %>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
   </div>
