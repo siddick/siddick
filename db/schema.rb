@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20111117094554) do
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
+    t.string   "cached_slug"
     t.text     "content"
     t.text     "raw_content"
     t.string   "raw_content_type"
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20111117094554) do
     t.string   "avatar_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.3'
 gem 'devise'
 gem 'activeadmin'
 gem 'sass-rails',   '~> 3.1.4'
@@ -22,7 +22,14 @@ group :test, :development do
 end
 
 group :production do
-  gem 'thin', :platforms => :ruby, :require => false
   gem 'pg'
-  gem 'memcache-client'
+  gem 'dalli'
+end
+
+group :extra do
+  gem 'thin'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'aws-sdk'
+  gem 'foreman'
 end

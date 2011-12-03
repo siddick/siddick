@@ -22,14 +22,19 @@ Capistrano::Configuration.instance.load do
   set :ec2_filter, lambda{ ec2_object.instances.tagged(ec2_name_key).tagged_values(ec2_name) }
   
   namespace :ec2 do
+
     desc "Find the EC2 instances"
     task :find do
-      STDERR.puts("Application: #{application}")
-      ec2_filter.each{|instance|
-        STDERR.puts("Server: #{instance.ip_address} = #{instance.tags[ec2_role_key]}")
-        server( instance.ip_address, *instance.tags[ec2_role_key].split(",") )
-      }
+      unless @ec2_find_already_executed
+        puts("Application: #{application}")
+        ec2_filter.each{|instance|
+          puts("Server: #{instance.ip_address} = #{instance.tags[ec2_role_key]}")
+          server( instance.ip_address, *instance.tags[ec2_role_key].split(",") )
+        }
+        @ec2_find_already_executed = true
+      end
     end
+
     desc "Create EC2 instances"
     task :create do
       roles = (ENV["ROLE"] || ec2_role).split(",").uniq
@@ -39,11 +44,13 @@ Capistrano::Configuration.instance.load do
       instance.tags[ec2_role_key] = roles.join(",")
       server( instance.ip_address, :new_machine, *roles )
     end
+
     task :destroy do
       ec2_filter.each{|instance|
         instance.destroy()
       }
     end
+
     task :stop do
       ec2_filter.each{|instance|
         instance.stop()
