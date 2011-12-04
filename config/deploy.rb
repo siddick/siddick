@@ -7,7 +7,7 @@ set :stages, ["staging", "production"]
 set :default_stage, "staging"
 set :use_sudo, false
 
-set :bundle_exec, lambda{ "cd #{current_path}; bundle exec" } 
+set :bundle_exec, lambda{ "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec" } 
 set :thin_exec,   lambda{ "#{bundle_exec} thin -C #{shared_path}/thin.conf" }
 set :rake_exec,   lambda{ "#{bundle_exec} rake" }
 

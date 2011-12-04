@@ -29,7 +29,8 @@ Capistrano::Configuration.instance.load do
         puts("Application: #{application}")
         ec2_filter.each{|instance|
           puts("Server: #{instance.ip_address} = #{instance.tags[ec2_role_key]}")
-          server( instance.ip_address, *instance.tags[ec2_role_key].split(",") )
+          roles = instance.tags[ec2_role_key].split(",")
+          server( instance.ip_address, *roles, :primary => true )
         }
         @ec2_find_already_executed = true
       end
@@ -58,6 +59,7 @@ Capistrano::Configuration.instance.load do
     end
   end
   
-  before "deploy", "ec2:find"
+  #before "deploy", "ec2:find"
+  after "multistage:ensure", "ec2:find"
   
 end

@@ -1,0 +1,8 @@
+<article data-id="<% post.id %>">
+  <h3><%= link_to post.title, post %></h3>
+  <%= post.content.html_safe %>
+  <div class="info">
+    <span class="user"><%= post.user %></span>
+    <span class="date"><%= post.updated_at %></span>
+  </div>
+</article>

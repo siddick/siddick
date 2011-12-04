@@ -8,7 +8,8 @@ ActiveAdmin.register Post do
   filter :title
   
   form do |f|
-    f.inputs :title, :content, :published
+    f.inputs :title, :raw_content, :published
     f.buttons
   end
+
 end
