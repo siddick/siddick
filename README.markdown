@@ -1,4 +1,4 @@
-## Welcome to App
+# Siddick [![Build Status](https://secure.travis-ci.org/siddick/siddick.png)](http://travis-ci.org/siddick/siddick)
 
 ### Install required softwares
 
