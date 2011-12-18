@@ -3,3 +3,4 @@ rvm:
 notifications:
   recipients:
     - notifiy@siddick.com
+script: "bundle exec rake db:migrate spec"
