@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117094554) do
+ActiveRecord::Schema.define(:version => 20111218112357) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20111117094554) do
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.text     "content"
     t.text     "raw_content"
     t.string   "raw_content_type"

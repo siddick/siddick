@@ -2,11 +2,9 @@
 
 FactoryGirl.define do
   factory :post do
-    user nil
-    title "MyString"
-    content "MyText"
-    raw_content "MyText"
-    raw_content_type "MyString"
-    published false
+    association :user
+    title       "Title"
+    raw_content "Content"
+    published   true
   end
 end

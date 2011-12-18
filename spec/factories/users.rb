@@ -10,4 +10,11 @@ FactoryGirl.define do
     email     { Factory.next(:email) }
     password  "password"
   end
+  
+  factory :admin_user do
+    name      "Admin"
+    email     { Factory.next(:email) }
+    password  "password"
+  end
+
 end

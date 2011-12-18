@@ -1,8 +1,4 @@
-<article data-id="<% post.id %>">
+<article data-id="<% post.to_param %>" data-updated-at="<%= post.updated_at %>">
   <h3><%= link_to post.title, post %></h3>
-  <%= post.content.html_safe %>
-  <div class="info">
-    <span class="user"><%= post.user %></span>
-    <span class="date"><%= post.updated_at %></span>
-  </div>
+  <%= post.content ? post.content.html_safe : post.raw_content %>
 </article>

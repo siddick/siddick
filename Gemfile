@@ -11,26 +11,35 @@ gem 'resque', :require => "resque/server"
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier',     '>= 1.0.3'
 end
 gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rcov', :require => false
+  gem 'guard-rspec'
+  gem 'spork', '>= 0.9.0.rc9'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-spork'
 end
 
 group :production do
   gem 'pg'
   gem 'dalli'
+  gem 'aws-sdk'
 end
 
 group :extra do
   gem 'thin'
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'aws-sdk'
   gem 'foreman'
 end

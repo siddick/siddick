@@ -1,5 +1,5 @@
 Siddick::Application.routes.draw do
-  resources :posts
+  resources :posts, :only => [ :index, :show ]
 
   ActiveAdmin.routes(self)
 
