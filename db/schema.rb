@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20111218112357) do
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["slug"], :name => "index_posts_on_slug"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "users", :force => true do |t|

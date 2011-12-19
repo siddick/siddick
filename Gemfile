@@ -7,6 +7,7 @@ gem 'sass-rails',   '~> 3.1.4'
 gem 'friendly_id',  '>= 4.0.0.beta14'
 gem 'redcarpet',    '>= 2.0.0'
 gem 'paperclip'
+gem 'simple_form'
 gem 'resque', :require => "resque/server"
 
 group :assets do
