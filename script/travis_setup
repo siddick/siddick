@@ -11,6 +11,6 @@ Dir['config/travis/*'].each do |source|
 end
 
 # run rake and setup tasks
-system "bundle"
+# system "bundle"
 system "bundle exec rake db:create:all"
 system "bundle exec rake db:migrate --trace"
