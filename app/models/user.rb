@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+
+  validates_presence_of :name, :email
   
   before_save do
     self.avatar_url = generate_avatar_url unless self.avatar_url.present?

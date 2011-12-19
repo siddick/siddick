@@ -1,19 +1,20 @@
 development:
-  adapter: postgresql
-  database: siddick_dev
-  username: postgres
+  adapter: sqlite3
+  database: db/development.sqlite3
+  timeout: 5000
 
 test:
-  adapter: postgresql
-  database: siddick_test
-  username: postgres
+  adapter: sqlite3
+  database: db/test.sqlite3
+  timeout: 5000
 
 production:
-  adapter: postgresql
-  database: siddick_pro
-  username: postgres
-
+  adapter:  postgresql
+  username: apps
+  database: siddick_production
+  
 staging:
-  adapter: postgresql
+  adapter:  postgresql
+  username: apps
   database: siddick_staging
-  username: postgres
+
