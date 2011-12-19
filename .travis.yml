@@ -2,6 +2,6 @@ rvm:
   - 1.9.3
 notifications:
   recipients:
-    - notifiy@siddick.com
+    - notify@siddick.com
 before_script:
   - "script/travis_setup"
