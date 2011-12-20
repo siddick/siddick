@@ -33,6 +33,9 @@ namespace :rails do
 end
 
 namespace :deploy do
+  task :default_setup do
+    run "cd #{release_path}; ruby script/setup"
+  end
   namespace :assets do
     task :create_directory do
       run "mkdir -p #{shared_path}/assets"
@@ -41,3 +44,4 @@ namespace :deploy do
   end
 end
 before "deploy:assets:precompile", "deploy:assets:create_directory"
+after "deploy:update", "deploy:default_setup"

@@ -32,7 +32,7 @@ group :test do
   gem 'guard-spork'
 end
 
-group :production do
+group :production, :staging do
   gem 'pg'
   gem 'dalli'
   gem 'aws-sdk'
