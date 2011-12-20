@@ -44,4 +44,4 @@ namespace :deploy do
   end
 end
 before "deploy:assets:precompile", "deploy:assets:create_directory"
-after "deploy:update", "deploy:default_setup"
+before "bundle:install", "deploy:default_setup"
