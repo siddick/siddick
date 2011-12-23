@@ -19,7 +19,8 @@ namespace :deploy do
     run "#{thin_exec} stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{thin_exec} restart"
+    deploy.stop
+    deploy.start
   end
   task :thin do
     run "thin config -S #{shared_path}/web.socket -e #{default_stage} -c #{current_path}"
