@@ -4,11 +4,12 @@ gem 'rails', '3.1.3'
 gem 'devise'
 gem 'activeadmin'
 gem 'sass-rails',   '~> 3.1.4'
-gem 'friendly_id',  '~> 4.0.0'
-gem 'redcarpet',    '>= 2.0.0'
+gem 'friendly_id'
+gem 'redcarpet'
+gem 'coderay'
 gem 'paperclip'
 gem 'simple_form'
-gem 'resque', :require => "resque/server"
+gem 'resque', :require => 'resque/server'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'

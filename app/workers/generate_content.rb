@@ -1,16 +1,31 @@
 class GenerateContent
   @queue = :generate_content
 
-  def self.perform(post_id)
-    post = Post.find(post_id)
-    post.content = markdown.render(post.raw_content)
-    post.save
+  class << self
+    def perform(post_id)
+      post = Post.find(post_id)
+      post.content = render(post.raw_content)
+      post.save
+    end
+
+    def markdown
+      @markdown ||= begin
+        html_render = CustomHTMLRender.new( :filter_html => true, :hard_wrap => true )
+        Redcarpet::Markdown.new(html_render, :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true)
+      end
+    end
+
+    def render(text)
+      markdown.render(text)
+    end
+
   end
 
-  def self.markdown
-    @markdown ||= Redcarpet::Markdown.new( 
-      Redcarpet::Render::HTML.new( :filter_html => true, :hard_wrap => true ),
-      :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true )
+  class CustomHTMLRender < Redcarpet::Render::HTML
+    def block_code(code, language)
+      language ||= "ruby"
+      CodeRay.scan(code, language).div(:css => :class)
+    end
   end
 
 end

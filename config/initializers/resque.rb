@@ -4,3 +4,6 @@ if resque_config.present?
   Resque.redis = resque_config[:redis]
   Resque.redis.namespace = resque_config[:namespace]
 end
+
+# Preload
+GenerateContent.markdown
