@@ -10,5 +10,5 @@ Siddick::Application.routes.draw do
     mount Resque::Server, :at => "/admin/resque"
   end
 
-  root :to => "home#index"
+  root :to => "posts#index"
 end

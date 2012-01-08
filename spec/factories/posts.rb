@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :post do
-    association :user
-    title       "Title"
-    raw_content "Content"
-    published   true
+    association   :user
+    title         "Title"
+    raw_content   "Content"
+    published     true
+    published_at  2.days.ago
   end
 end

@@ -5,5 +5,11 @@ if resque_config.present?
   Resque.redis.namespace = resque_config[:namespace]
 end
 
-# Preload
-GenerateContent.markdown
+
+# Resque.after_fork do |job|
+Resque.before_first_fork do
+  # Preload
+  ActiveRecord::Base.establish_connection
+  GenerateContent.markdown
+end
+

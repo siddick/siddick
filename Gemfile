@@ -11,6 +11,9 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'resque', :require => 'resque/server'
 
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier',     '>= 1.0.3'
@@ -18,6 +21,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'progress_bar'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sqlite3'
@@ -25,7 +29,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'rcov', :require => false
+  gem 'simplecov', :require => false
   gem 'guard-rspec'
   gem 'spork', '>= 0.9.0.rc9'
   gem 'rb-inotify'

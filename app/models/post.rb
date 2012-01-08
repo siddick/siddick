@@ -2,6 +2,13 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
 
+  searchable do
+    integer :user_id
+    boolean :published
+    text :title, :content
+    time :published_at
+  end
+
   extend FriendlyId
   friendly_id :title, :use => :slugged
 

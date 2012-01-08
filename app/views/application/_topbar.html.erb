@@ -7,7 +7,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <%= form_tag "/", :method => :get do %>
-      <input id="search-q" name="q" type="text" placeholder="Search">
+      <%= text_field_tag "q", params[:q], :id => "search-q", :placeholder => "Search" %>
     <% end %>
     <ul class="nav secondary-nav">
       <% if user_signed_in? %>
