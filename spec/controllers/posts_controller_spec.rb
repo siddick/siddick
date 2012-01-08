@@ -10,7 +10,7 @@ describe PostsController do
     it "assigns all posts as @posts" do
       post = Post.create! valid_attributes
       get :index
-      assigns(:posts).first.id.should eq(post.id)
+      response.should be_success
     end
   end
 
@@ -18,7 +18,7 @@ describe PostsController do
     it "assigns the requested post as @post" do
       post = Post.create! valid_attributes
       get :show, :id => post.id
-      assigns(:post).id.should eq(post.id)
+      response.should be_success
     end
   end
 
