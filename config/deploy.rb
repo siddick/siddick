@@ -13,12 +13,10 @@ set :rake_exec,   lambda{ "#{bundle_exec} rake" }
 
 namespace :deploy do
   task :start do
-    run "#{rake_exec} sunspot:solr:start"
     run "#{thin_exec} start"
   end
   task :stop do
     run "#{thin_exec} stop"
-    run "#{rake_exec} sunspot:solr:stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     deploy.stop
@@ -44,6 +42,9 @@ namespace :deploy do
       run "mkdir -p #{shared_path}/assets"
       run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
     end
+  end
+  task :solr do
+    run "#{rake_exec} sunspot:solr:start"
   end
 end
 before "deploy:assets:precompile", "deploy:assets:create_directory"
