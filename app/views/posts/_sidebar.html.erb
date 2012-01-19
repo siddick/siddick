@@ -1,0 +1,19 @@
+<%= render "application/sidebar" %>
+
+<% if @search.present? %>
+  <% @search.facet(:tag_list).rows.each do |tag| %>
+    <% if tag.value != params[:tag] %>
+      <%= link_to "#{tag.value}(#{tag.count})", posts_path(:tag => tag.value) %>
+    <% else %>
+      <%= "#{tag.value}(#{tag.count})" %>
+    <% end %>
+  <% end %>
+
+  <% @search.facet(:archive).rows.each do |archive| %>
+    <% if archive.value != params[:archive] %>
+      <%= link_to "#{archive.value}(#{archive.count})", posts_path(:archive => archive.value) %>
+    <% else %>
+      <%= "#{archive.value}(#{archive.count})" %>
+    <% end %>
+  <% end %>
+<% end %>

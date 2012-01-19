@@ -9,6 +9,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'paperclip'
 gem 'simple_form'
+gem 'acts-as-taggable-on'
 gem 'resque', :require => 'resque/server'
 
 gem 'sunspot_rails'
