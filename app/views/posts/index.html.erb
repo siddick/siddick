@@ -1,7 +1,9 @@
-<h1>Listing posts</h1>
-
 <div class="posts">
-  <%= render @posts %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <p>No records found.</p>
+  <% end %>
 </div>
 
 <%= paginate @posts %>

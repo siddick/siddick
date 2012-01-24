@@ -1,4 +1,4 @@
-<article data-id="<% post.to_param %>" data-updated-at="<%= post.updated_at %>">
+<%= content_tag( :article, "data-id" => post.to_param, "data-updated-at" => post.updated_at ) do %>
   <h3><%= link_to post.title, post %></h3>
   <%= post.content ? post.content.html_safe : post.raw_content %>
-</article>
+<% end %>
