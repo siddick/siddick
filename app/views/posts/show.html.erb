@@ -1,5 +1,5 @@
 <% content_for(:page_header) do %>
-  <h1><%= @post.title %></h1>
+  <h1><%= truncate(@post.title, :length => 45) %></h1>
 <% end %>
 <%= render @post %>
 <%= render "application/disqus" %>
