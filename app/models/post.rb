@@ -6,11 +6,14 @@ class Post < ActiveRecord::Base
   searchable do
     integer :user_id
     boolean :published
-    text :title, :content
+    text :title, :raw_content
     time :published_at
     string :tag_list, :multiple => true
     string :archive do
       published_at.strftime("%Y-%B") if published_at.present?
+    end
+    string :archive_year do
+      published_at.year.to_s if published_at.present?
     end
   end
 

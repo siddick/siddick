@@ -1,6 +1,7 @@
 <%= render "application/sidebar" %>
 
 <% if @search.present? %>
+  <h4>Tags</h4>
   <% @search.facet(:tag_list).rows.each do |tag| %>
     <% if tag.value != params[:tag] %>
       <%= link_to "#{tag.value}(#{tag.count})", posts_path(:tag => tag.value) %>
@@ -9,6 +10,7 @@
     <% end %>
   <% end %>
 
+  <h4>Archive</h4>
   <% @search.facet(:archive).rows.each do |archive| %>
     <% if archive.value != params[:archive] %>
       <%= link_to "#{archive.value}(#{archive.count})", posts_path(:archive => archive.value) %>

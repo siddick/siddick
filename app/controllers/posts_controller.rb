@@ -13,8 +13,9 @@ class PostsController < ApplicationController
   def custom_search(params={})
     Post.solr_search do
       fulltext params[:q] if params[:q].present?
-      with(:tag_list,  params[:tag])     if params[:tag].present?
-      with(:archive,   params[:archive]) if params[:archive].present?
+      with(:tag_list,       params[:tag])     if params[:tag].present?
+      with(:archive,        params[:archive]) if params[:archive].present?
+      with(:archive_year,   params[:archive_year]) if params[:archive_year].present?
       with(:published, true)
       with(:published_at).less_than(Time.zone.now)
       order_by :published_at, :desc
