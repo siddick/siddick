@@ -16,15 +16,21 @@ body {
       min-height: 500px;
     }
     .sidebar {
-      margin-left: 0;
-      padding-left: 19px;
+      margin-left: 10px;
+      padding-left: 9px;
       border-left: 1px solid #eee;
     }
     .page-header {
       background-color: #f5f5f5;
       padding: 20px 20px 10px;
       margin: -20px -20px 20px;
+      .badges, .share-this {
+        float: right;
+      }
     }
+  }
+  .container > footer p {
+    text-align: center;
   }
 }
 
@@ -44,4 +50,3 @@ body {
     border: 0px;
   }
 }
-
