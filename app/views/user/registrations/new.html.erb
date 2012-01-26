@@ -1,4 +1,6 @@
-<div class="page-header"><h2>Sign up</h2></div>
+<% content_for(:page_header) do %>
+  <h1>Sign up</h1>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.input :name %>

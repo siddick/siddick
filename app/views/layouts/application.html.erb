@@ -10,16 +10,19 @@
   <body>
     <div class="topbar"><%= render "topbar" %></div>
     <div class="container">
-      <div class="row">
-        <div class="span12 main">
-          <%= render "error_messages" %>
-          <%= yield %>
-        </div>
-        <div class="span4 sidebar">
-          <%= render "sidebar" %>
+      <div class="content">
+        <div class="page-header"><%= yield :page_header %></div>
+        <div class="row">
+          <div class="span12 main">
+            <%= render "error_messages" %>
+            <%= yield %>
+          </div>
+          <div class="span4 sidebar">
+            <%= render "sidebar" %>
+          </div>
         </div>
       </div>
+      <div class="footer"></div>
     </div>
-    <div class="footer"></div>
   </body>
 </html>

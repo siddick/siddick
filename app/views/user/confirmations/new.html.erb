@@ -1,4 +1,6 @@
-<div class="page-header"><h2>Resend confirmation instructions</h2></div>
+<% content_for(:page_header) do %>
+  <h1>Resend confirmation instructions</h1>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
 

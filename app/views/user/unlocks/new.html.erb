@@ -1,4 +1,6 @@
-<div class="page-header"><h2>Resend unlock instructions</h2></div>
+<% content_for(:page_header) do %>
+  <h1>Resend unlock instructions</h1>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
 

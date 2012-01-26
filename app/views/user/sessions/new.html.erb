@@ -1,4 +1,6 @@
-<div class="page-header"><h2>Sign in</h2></div>
+<% content_for(:page_header) do %>
+  <h1>Sign in</h1>
+<% end %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="clearfix">

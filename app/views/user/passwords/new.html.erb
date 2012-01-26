@@ -1,4 +1,6 @@
-<div class="page-header"><h2>Forgot your password?</h2></div>
+<% content_for(:page_header) do %>
+  <h2>Forgot your password?</h2>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 
