@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
     time :published_at
     string :tag_list, :multiple => true
     string :archive,  :multiple => true do
-      published_at.strftime("%Y-%B,%Y").split(',') if published_at.present?
+      published_at.strftime("%Y-%I,%Y").split(',') if published_at.present?
     end
   end
 

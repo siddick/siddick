@@ -1,4 +1,4 @@
-<%= content_tag( :article, "data-id" => post.to_param, "data-updated-at" => post.updated_at ) do %>
+<%= content_tag( :article, "data-id" => post.to_param, "data-updated-at" => post.updated_at, "data-published" => post.published ) do %>
   <% unless @post %>
     <h3><%= link_to post.title, post %></h3>
   <% end %>

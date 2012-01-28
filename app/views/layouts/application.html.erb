@@ -14,7 +14,7 @@
     <div class="topbar"><%= render "topbar" %></div>
     <div class="container">
       <div class="content">
-        <div class="page-header">
+        <div class="page-header<%= " tag-#{params[:tag]}" if params[:tag].present? %>">
           <div class="share-this"><%= render "share_this" %></div>
           <%= yield :page_header %>
         </div>

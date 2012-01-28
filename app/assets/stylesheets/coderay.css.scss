@@ -1,3 +1,10 @@
+.CodeRay {
+  background-color: hsl(0, 0%, 95%);
+  border: 1px solid silver;
+  color: black;
+  pre {
+    margin: 0px; } }
+
 span.CodeRay {
   white-space: pre;
   border: 0px;
@@ -12,18 +19,6 @@ table.CodeRay {
     vertical-align: top; } }
 
 .CodeRay {
-  background-color: #232323;
-  border: 1px solid black;
-  font-family: 'Courier New', 'Terminal', monospace;
-  color: #E6E0DB;
-  padding: 3px 5px;
-  overflow: auto;
-  font-size: 12px;
-  margin: 12px 0px;
-  pre {
-    margin: 0px;
-    padding: 0px;
-    background-color: #232323; }
   .line-numbers {
     background-color: hsl(180, 65%, 90%);
     color: gray;
@@ -48,9 +43,7 @@ table.CodeRay {
     float: left;
     width: 100%; }
   .code {
-    width: 100%;
-    pre {
-      overflow: auto; } }
+    width: 100%; }
   .debug {
     color: white !important;
     background: blue !important; }
@@ -250,5 +243,3 @@ table.CodeRay {
     color: #88f; }
   .head .head {
     color: #f4f; } }
-
-
