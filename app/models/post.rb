@@ -21,5 +21,4 @@ class Post < ActiveRecord::Base
     Resque.enqueue(GenerateContent, self.id)  if raw_content_changed?
   end
 
-
 end

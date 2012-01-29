@@ -169,7 +169,8 @@ table.CodeRay {
       color: #404; }
     .modifier {
       color: #C2C; }
-    background-color: hsla(300, 100%, 50%, 0.06); }
+    //background-color: hsla(300, 100%, 50%, 0.06);
+  }
   .reserved {
     color: #080;
     font-weight: bold; }
@@ -178,7 +179,8 @@ table.CodeRay {
       color: #2B2; }
     .delimiter {
       color: #161; }
-    background-color: hsla(120, 100%, 50%, 0.06); }
+    //background-color: hsla(120, 100%, 50%, 0.06);
+  }
   .string {
     .char {
       color: #b0b; }
@@ -188,7 +190,8 @@ table.CodeRay {
       color: #710; }
     .modifier {
       color: #E40; }
-    background-color: hsla(0, 100%, 50%, 0.05); }
+    //background-color: hsla(0, 100%, 50%, 0.05);
+  }
   .symbol {
     .content {
       color: #A60; }
