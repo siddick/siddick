@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.1'
 gem 'devise'
-gem 'activeadmin'
-gem 'sass-rails',   '~> 3.1.4'
+gem 'activeadmin',  '>= 0.4.0'
+gem 'sass-rails',   '~> 3.2.0'
 gem 'friendly_id'
 gem 'redcarpet'
 gem 'coderay'
@@ -16,7 +16,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier',     '>= 1.0.3'
 end
 gem 'jquery-rails'
