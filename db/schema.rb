@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120119172813) do
     t.integer  "author_id"
     t.string   "author_type"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "namespace"
   end
 
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120119172813) do
     t.text     "raw_content"
     t.string   "raw_content_type"
     t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.datetime "published_at"
   end
 
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(:version => 20120119172813) do
     t.string   "type"
     t.string   "name"
     t.string   "avatar_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

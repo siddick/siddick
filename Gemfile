@@ -10,7 +10,7 @@ gem 'coderay'
 gem 'paperclip'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
-gem 'resque', :require => 'resque/server'
+gem 'resque'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
