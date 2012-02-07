@@ -9,5 +9,5 @@ load 'config/deploy' # remove this line to skip loading any of the default tasks
 
 require 'bundler/capistrano'
 $LOAD_PATH.push('./lib')
-require 'capistrano/ec2'
+require 'capistrano/ec2' if ENV['AWS_KEY'] and ENV['AWS_SECRET']
 require 'capistrano/ext/multistage'
