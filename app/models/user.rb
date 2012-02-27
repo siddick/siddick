@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
   validates_presence_of :name, :email
+  validates_presence_of :password, :on => :create
   
   before_save do
     self.avatar_url = generate_avatar_url unless self.avatar_url.present?
