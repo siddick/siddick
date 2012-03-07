@@ -22,11 +22,27 @@
       {separator:'---------------' },
       {name:'Picture', key:'P', replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
       {name:'Link', key:'L', openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")', placeHolder:'Your text to link here...' },
+      {name:'Video', key:'V', className:'tinyUrl', openWith:function(markItUp) { return findVideo(markItUp) } },
       {separator:'---------------'},
       {name:'Quotes', openWith:'> '},
       {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
       {separator:'---------------'}
     ]
+  }
+
+  function findVideo(markItUp) {
+    var url, image = "no-image", title = "no-title";
+    url = prompt("Url:", "http://");
+    if (url) {
+      $.ajaxSetup({ async: false });
+      $.getJSON("/admin/posts/video_info.json", "url="+url, function(obj) {
+        if(obj && obj["video"]){
+          title = obj["video"]["title"];
+          image = '!['+title+']('+obj["video"]["thumbnail_large"]+')';
+        }
+      });
+    }
+    return '['+image+']('+url+' "'+title+'")';
   }
 
   function markdownTitle(markItUp, char) {
