@@ -34,12 +34,14 @@
     var url, image = "no-image", title = "no-title";
     url = prompt("Url:", "http://");
     if (url) {
-      $.ajaxSetup({ async: false });
-      $.getJSON("/admin/posts/video_info.json", {url: url}, function(obj) {
-        if(obj && obj["video"]){
-          url   = obj["video"]["url"];
-          title = obj["video"]["title"];
-          image = '!['+title+']('+obj["video"]["thumbnail_large"]+')';
+      $.ajax({ url: "/admin/posts/video_info.json", data: { url: url },
+        dataType: 'json', async: false,
+        success: function(obj) {
+          if(obj && obj["video"]){
+            url   = obj["video"]["url"];
+            title = obj["video"]["title"];
+            image = '!['+title+']('+obj["video"]["thumbnail_large"]+')';
+          }
         }
       });
       return '['+image+']('+url+' "'+title+'")';
