@@ -1,5 +1,5 @@
-jQuery(function($){
-  $('a[href*="youtube.com/watch"]').click(function(){
+(function($){
+  $(document).on('click', 'a[href*="youtube.com/watch"]', function(){
     $.fancybox({
       'width'         : 640,
       'height'        : 385,
@@ -12,4 +12,4 @@ jQuery(function($){
     });
     return false;
   });
-});
+})(jQuery);
