@@ -42,7 +42,7 @@ namespace :deploy do
       run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
     end
   end
-  task :solr do
+  namespace :solr do
     task :create_directory do
       run "mkdir -p #{shared_path}/solr"
       run "ln -sfT #{shared_path}/solr #{release_path}/solr"
