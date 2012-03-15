@@ -10,6 +10,7 @@ depends "rvm"
 depends "nodejs"
 depends "nginx"
 depends "postgresql"
+depends "java"
 
 supports "ubuntu"
 supports "debian"

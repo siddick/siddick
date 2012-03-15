@@ -3,13 +3,14 @@ include_recipe "rvm::ruby_193"
 include_recipe "nodejs"
 include_recipe "nginx"
 include_recipe "postgresql::server"
+include_recipe "java::openjdk"
 
 # Variables
-shared_path  = "/a/apps/#{node[:siddick][:name]}/shared"
-current_path = "/a/apps/#{node[:siddick][:name]}/current"
+shared_path  = "/u/apps/#{node[:siddick][:name]}/shared"
+current_path = "/u/apps/#{node[:siddick][:name]}/current"
 
 user node[:siddick][:user] do
-  home  "/a/apps"
+  home  "/u/apps"
   shell "/bin/bash"
 end
 
@@ -33,7 +34,7 @@ end
 
 gem_package "bundler"
 
-deploy "/a/apps/#{node[:siddick][:name]}" do
+deploy "/u/apps/#{node[:siddick][:name]}" do
   repo node[:siddick][:repo]
   user node[:siddick][:user]
   environment "RAILS_ENV" => node[:siddick][:env]
@@ -61,4 +62,20 @@ script "Install startup scripts" do
   CODE
 end
 
-execute "service #{node[:siddick][:name]} restart"
+execute "service #{node[:siddick][:name]} restart" do
+  ignore_failure true
+end
+
+template "/etc/nginx/sites-available/#{node[:siddick][:name]}" do
+  mode "0644"
+  source "nginx_site.erb"
+end
+
+nginx_site "default" do
+  enable false
+end
+
+nginx_site node[:siddick][:name] do
+  enable true
+end
+

@@ -1,0 +1,29 @@
+<%
+  current_path = "/u/apps/#{node[:siddick][:name]}/current"
+  shared_path  = "/u/apps/#{node[:siddick][:name]}/shared"
+%>
+
+upstream <%= node[:siddick][:name] %> {
+  server unix:<%= current_path %>/tmp/web.socket fail_timeout=0;
+}
+server {
+    listen   80;
+    server_name <%= node[:siddick][:domain] %>;
+
+    access_log <%= shared_path %>/log/access.log;
+    error_log  <%= shared_path %>/log/error.log;
+    root       <%= current_path %>/public;
+    index      index.html;
+
+    location / {
+        proxy_set_header  X-Real-IP  $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  Host $http_host;
+        proxy_redirect    off;
+        try_files /system/maintenance.html $uri $uri/index.html $uri.html @ruby;
+    }
+
+    location @ruby {
+        proxy_pass http://<%= node[:siddick][:name] %>;
+    }
+}
