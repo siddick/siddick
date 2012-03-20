@@ -36,19 +36,14 @@ namespace :deploy do
   task :default_setup do
     run "cd #{release_path}; ruby script/setup"
   end
-  namespace :assets do
-    task :create_directory do
-      run "mkdir -p #{shared_path}/assets"
-      run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
-    end
-  end
-  namespace :solr do
-    task :create_directory do
-      run "mkdir -p #{shared_path}/solr"
-      run "ln -sfT #{shared_path}/solr #{release_path}/solr"
-    end
+  task :create_directories do
+    run "mkdir -p #{shared_path}/assets"
+    run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
+    run "mkdir -p #{shared_path}/solr"
+    run "ln -sfT #{shared_path}/solr #{release_path}/solr"
+    run "mkdir -p #{shared_path}/tmp"
+    run "ln -sfT #{shared_path}/tmp #{release_path}/tmp"
   end
 end
-before "deploy:assets:precompile", "deploy:assets:create_directory"
-before "deploy:assets:precompile", "deploy:solr:create_directory"
+before "deploy:assets:precompile", "deploy:create_directories"
 before "bundle:install", "deploy:default_setup"

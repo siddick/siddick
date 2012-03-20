@@ -7,3 +7,4 @@ coverage
 public/assets
 config/*.yml
 solr/
+.vagrant
