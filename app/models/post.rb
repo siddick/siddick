@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   acts_as_taggable
+  
+  scope :last_posted, where(:published => true).order("published_at DESC")
 
   searchable do
     integer :user_id
