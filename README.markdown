@@ -1,5 +1,4 @@
-## Welcome to App
-
+# Siddick [![Build Status](https://secure.travis-ci.org/siddick/siddick.png)](http://travis-ci.org/siddick/siddick) / [![Dep Status](https://gemnasium.com/siddick/siddick.png)](http://gemnasium.com/siddick/siddick)
 ### Install required softwares
 
 ```

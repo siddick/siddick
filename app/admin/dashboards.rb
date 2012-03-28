@@ -1,14 +1,22 @@
 ActiveAdmin::Dashboards.build do
 
   section "Users" do
-    table_for User.limit(5) do |user|
-      user.column :name
+    table_for User.last_sign_in.limit(5) do |user|
+      user.column :name do |user|
+        link_to user.name, admin_user_path(user)
+      end
       user.column :email
       user.column :last_sign_in_at
     end
   end
   
-  section "Post" do
+  section "Posts" do
+    table_for Post.last_posted.limit(5) do |post|
+      post.column :title do |post|
+        link_to post.title, admin_post_path(post)
+      end
+      post.column :published_at
+    end
   end
 
 end

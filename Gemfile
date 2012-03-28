@@ -1,35 +1,54 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.2'
 gem 'devise'
-gem 'activeadmin'
-gem 'sass-rails',   '~> 3.1.4'
-gem 'friendly_id',  '>= 4.0.0.beta14'
-gem 'redcarpet',    '>= 2.0.0b5'
+gem 'activeadmin',  '>= 0.4.0'
+gem 'sass-rails',   '~> 3.2.0'
+gem 'friendly_id'
+gem 'redcarpet'
+gem 'coderay'
 gem 'paperclip'
+gem 'simple_form'
+gem 'acts-as-taggable-on'
+gem 'resque'
+gem 'video_info'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'coffee-rails', '~> 3.2.0'
+  gem 'uglifier',     '>= 1.0.3'
+  gem 'compass-rails'
 end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'progress_bar'
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'sqlite3'
 end
 
-group :production do
+group :test do
+  gem 'capybara'
+  gem 'simplecov', :require => false
+  gem 'guard-rspec'
+  gem 'spork', '>= 0.9.0.rc9'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-spork'
+end
+
+group :production, :staging do
   gem 'pg'
   gem 'dalli'
+  gem 'aws-sdk'
 end
 
 group :extra do
   gem 'thin'
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'aws-sdk'
   gem 'foreman'
 end

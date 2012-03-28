@@ -1,10 +1,9 @@
 Siddick::Application.routes.draw do
-  resources :posts
+  resources :posts, :only => [ :index, :show ]
 
   ActiveAdmin.routes(self)
 
-  devise_for :admin_user, ActiveAdmin::Devise.config
   devise_for :user
 
-  root :to => "home#index"
+  root :to => "posts#index"
 end

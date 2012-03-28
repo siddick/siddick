@@ -7,37 +7,43 @@ set :stages, ["staging", "production"]
 set :default_stage, "staging"
 set :use_sudo, false
 
-set :bundle_exec, lambda{ "cd #{current_path}; bundle exec" } 
-set :thin_exec,   lambda{ "#{bundle_exec} thin -C #{shared_path}/thin.conf" }
+set :bundle_exec, lambda{ "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec" }
 set :rake_exec,   lambda{ "#{bundle_exec} rake" }
 
 namespace :deploy do
   task :start do
-    run "#{thin_exec} start"
+    run "sudo service #{application} start"
   end
   task :stop do
-    run "#{thin_exec} stop"
+    run "sudo service #{application} stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{thin_exec} restart"
+    run "sudo service #{application} restart"
   end
-  task :thin do
-    run "thin config -S #{shared_path}/web.socket -e #{default_stage} -c #{current_path}"
+  task :service do
+    run "echo 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"
+    run "cd #{current_path}; sudo bundle exec foreman export upstart /etc/init/ -f Procfile.deploy -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path}"
   end
 end
 
 namespace :rails do
   task :log do
-    run "tail -f #{current_path}/log/production.log"
+    run "tail -f #{current_path}/log/#{rails_env}.log"
   end
 end
 
 namespace :deploy do
-  namespace :assets do
-    task :create_directory do
-      run "mkdir -p #{shared_path}/assets"
-      run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
-    end
+  task :default_setup do
+    run "cd #{release_path}; ruby script/setup"
+  end
+  task :create_directories do
+    run "mkdir -p #{shared_path}/assets"
+    run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
+    run "mkdir -p #{shared_path}/solr"
+    run "ln -sfT #{shared_path}/solr #{release_path}/solr"
+    run "mkdir -p #{shared_path}/tmp"
+    run "ln -sfT #{shared_path}/tmp #{release_path}/tmp"
   end
 end
-before "deploy:assets:precompile", "deploy:assets:create_directory"
+before "deploy:assets:precompile", "deploy:create_directories"
+before "bundle:install", "deploy:default_setup"

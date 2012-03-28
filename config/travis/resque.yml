@@ -1,0 +1,12 @@
+development:
+  redis: "localhost:6379"
+  namespace: "resque:siddick:dev"
+production:
+  redis: "localhost:6379"
+  namespace: "resque:siddick:pro"
+test:
+  redis: "localhost:6379"
+  namespace: "resque:siddick:test"
+staging:
+  redis: "localhost:6379"
+  namespace: "resque:siddick:staging"

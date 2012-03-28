@@ -5,20 +5,30 @@
     <title>Siddick</title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher:'d3bc7812-fef3-42c5-8661-21fb4eb796a7'});</script>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="topbar"><%= render "topbar" %></div>
     <div class="container">
-      <div class="row">
-        <div class="span12 main">
-          <%= render "error_messages" %>
-          <%= yield %>
+      <div class="content">
+        <div class="page-header<%= " tag-#{params[:tag]}" if params[:tag].present? %>">
+          <div class="share-this"><%= render "share_this" %></div>
+          <%= yield :page_header %>
         </div>
-        <div class="span4 sidebar">
-          <%= render("sidebar")%>
+        <div class="row">
+          <div class="span12 main">
+            <%= render "error_messages" %>
+            <%= yield %>
+          </div>
+          <div class="span4 sidebar">
+            <%= render "sidebar" %>
+          </div>
         </div>
       </div>
+      <footer><p>My blog.</p></footer>
     </div>
   </body>
 </html>

@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: siddick_dev
+  username: postgres
+
+test:
+  adapter: postgresql
+  database: siddick_test
+  username: postgres
+
+production:
+  adapter: postgresql
+  database: siddick_pro
+  username: postgres
+
+staging:
+  adapter: postgresql
+  database: siddick_staging
+  username: postgres

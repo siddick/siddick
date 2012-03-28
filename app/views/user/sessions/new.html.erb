@@ -1,4 +1,6 @@
-<h2>Sign in</h2>
+<% content_for(:page_header) do %>
+  <h1>Sign in</h1>
+<% end %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="clearfix">
@@ -17,7 +19,7 @@
   </div>
   <% end -%>
   <div class="actions">
-    <%= f.submit "Sign in", :class => "btn primary" %>
+    <%= f.submit "Sign in", :class => "btn primary", :disable_with => "Validating..." %>
     <%= link_to "Cancel", root_path, :class => "btn" %>
   </div>
 <% end %>

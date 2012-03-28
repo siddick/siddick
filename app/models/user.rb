@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+
+  validates_presence_of :name, :email
+  validates_presence_of :password, :on => :create
+  
+  scope :last_sign_in, order("last_sign_in_at DESC")
   
   before_save do
     self.avatar_url = generate_avatar_url unless self.avatar_url.present?

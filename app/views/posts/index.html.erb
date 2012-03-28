@@ -1,33 +1,13 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Raw content</th>
-    <th>Raw content type</th>
-    <th>Published</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= post.raw_content %></td>
-    <td><%= post.raw_content_type %></td>
-    <td><%= post.published %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% content_for(:page_header) do %>
+  <h1>Home</h1>
 <% end %>
-</table>
 
-<br />
+<div class="posts">
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <p>No records found.</p>
+  <% end %>
+</div>
 
-<%= link_to 'New Post', new_post_path %>
+<%= paginate @posts %>

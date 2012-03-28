@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe AdminUser do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should create admin user" do
+    
+  end
 end

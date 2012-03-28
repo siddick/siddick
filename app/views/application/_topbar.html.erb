@@ -1,22 +1,25 @@
 <div class="fill">
   <div class="container">
-    <a href="/" class="brand">Project name</a>
+    <a href="/" class="brand" title="Siddick">Si</a>
     <ul class="nav">
-      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <%= form_tag "/", :method => :get do %>
-      <input id="search-q" name="q" type="text" placeholder="Search">
+      <%= text_field_tag "q", params[:q], :id => "search-q", :placeholder => "Search" %>
     <% end %>
     <ul class="nav secondary-nav">
       <% if user_signed_in? %>
+      	<% if current_user.admin? %>
+      	<li><%= link_to "Dashboard", admin_dashboard_path %></li>
+      	<% end %>
         <li class="dropdown" data-dropdown="dropdown">
-          <%= link_to current_user.name, "#", :class => "dropdown-toggle", :class => "user-name" %>
+          <%= link_to current_user.name, "#", :class => "dropdown-toggle" %>
           <ul class="dropdown-menu">
-            <li> <%= link_to "Account", "#"%></li>
+            <li><%= link_to "Setting",  edit_user_registration_path %></li>
             <li class="divider"></li>
-            <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path %></li>
           </ul>
         </li>
       <% else %>

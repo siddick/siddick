@@ -1,27 +1,15 @@
-<h2>Sign up</h2>
+<% content_for(:page_header) do %>
+  <h1>Sign up</h1>
+<% end %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div class="clearfix">
-    <%= f.label :name %>
-    <div class="input"><%= f.email_field :name %></div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :email %>
-    <div class="input"><%= f.email_field :email %></div>
-  </div>
-
-  <div class="clearfix">
-    <%= f.label :password %>
-    <div class="input"><%= f.password_field :password %></div>
-  </div>
-
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
   <div class="actions">
     <%= f.submit "Sign up", :class => "btn primary" %>
     <%= link_to "Cancel", root_path, :class => "btn" %>
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "user/shared/links" %>
