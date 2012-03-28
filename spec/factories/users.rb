@@ -7,13 +7,13 @@ FactoryGirl.define do
 
   factory :user do
     name      "User"
-    email     { Factory.next(:email) }
+    email     { FactoryGirl.generate(:email) }
     password  "password"
   end
   
   factory :admin_user do
     name      "Admin"
-    email     { Factory.next(:email) }
+    email     { FactoryGirl.generate(:email) }
     password  "password"
   end
 
