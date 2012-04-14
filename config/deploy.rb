@@ -21,8 +21,8 @@ namespace :deploy do
     run "sudo service #{application} restart"
   end
   task :service do
-    run "echo 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"
-    run "cd #{current_path}; sudo bundle exec foreman export upstart /etc/init/ -f Procfile.deploy -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path}"
+    run "echo -e 'RAILS_ENV=#{rails_env}\nPORT=#{deploy_port}' > #{shared_path}/env"
+    run "cd #{current_path}; sudo bundle exec foreman export upstart /etc/init/ -f Procfile.deploy -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=3,queue=1,search=1"
   end
 end
 
