@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   acts_as_taggable
-  
+
   scope :last_posted, where(:published => true).order("published_at DESC")
 
   searchable do
@@ -19,8 +19,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  after_save do
-    Resque.enqueue(GenerateContent, self.id)  if raw_content_changed?
+  before_save do
+    self.content = GenerateContent.render(raw_content) if raw_content_changed?
   end
 
 end
