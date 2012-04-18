@@ -10,7 +10,6 @@ gem 'coderay'
 gem 'paperclip'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
-gem 'resque'
 gem 'video_info'
 
 gem 'sunspot_rails'

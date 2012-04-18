@@ -1,6 +1,4 @@
-web:      bundle exec thin start -p $PORT
-queue: 	  bundle exec rake resque:work QUEUE=*
+web:      bundle exec rails s -p $PORT
 tsearch:  bundle exec rake sunspot:solr:run RAILS_ENV=test
 test:  	  bundle exec guard
-log:   	  tail -f log/development.log
 search:   bundle exec rake sunspot:solr:run
