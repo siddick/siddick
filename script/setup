@@ -2,7 +2,7 @@
 require 'fileutils'
 
 # copy config files
-[ "database.yml", "sunspot.yml" ].each{|config_file|
+[ "database.yml" ].each{|config_file|
   FileUtils.cp("config/#{config_file}.sample", "config/#{config_file}")
   puts "Generated #{config_file}"
 }
