@@ -12,9 +12,6 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'video_info'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier',     '>= 1.0.3'
