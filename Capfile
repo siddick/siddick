@@ -11,3 +11,4 @@ require 'bundler/capistrano'
 $LOAD_PATH.push('./lib')
 require 'capistrano/ec2' if ENV['AWS_KEY'] and ENV['AWS_SECRET']
 require 'capistrano/ext/multistage'
+require 'rvm/capistrano'

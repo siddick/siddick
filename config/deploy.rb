@@ -10,6 +10,8 @@ set :use_sudo, false
 set :bundle_exec, lambda{ "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec" }
 set :rake_exec,   lambda{ "#{bundle_exec} rake" }
 
+set :rvm_type, :system
+
 namespace :deploy do
   task :start do
     run "sudo service #{application} start"
@@ -22,7 +24,7 @@ namespace :deploy do
   end
   task :service do
     run "echo 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"
-    run "cd #{current_path}; sudo bundle exec foreman export upstart /etc/init/ -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=3 -p #{deploy_port}"
+    run "cd #{current_path}; rvmsudo bundle exec foreman export upstart /etc/init -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=1 -p #{deploy_port}"
   end
 end
 
@@ -39,8 +41,8 @@ namespace :deploy do
   task :create_directories do
     run "mkdir -p #{shared_path}/assets"
     run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
-    run "mkdir -p #{shared_path}/solr"
-    run "ln -sfT #{shared_path}/solr #{release_path}/solr"
+    run "mkdir -p #{shared_path}/log"
+    run "ln -sfT #{shared_path}/log #{release_path}/log"
   end
 end
 before "deploy:assets:precompile", "deploy:create_directories"

@@ -46,5 +46,6 @@ group :extra do
   gem 'thin'
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'rvm-capistrano'
   gem 'foreman'
 end
