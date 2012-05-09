@@ -47,6 +47,8 @@ module Siddick
 
     config.generators do |g|
       g.assets false
-    end  
+    end
+
+    config.assets.initialize_on_precompile = false
   end
 end
