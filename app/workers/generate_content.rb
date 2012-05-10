@@ -11,7 +11,7 @@ class GenerateContent
     def markdown
       @markdown ||= begin
         html_render = CustomHTMLRender.new( :filter_html => true, :hard_wrap => true )
-        Redcarpet::Markdown.new(html_render, :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true)
+        Redcarpet::Markdown.new(html_render, :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :tables => true)
       end
     end
 
