@@ -6,4 +6,5 @@ Siddick::Application.routes.draw do
   devise_for :user
 
   root :to => "posts#index"
+  get "sitemap.xml" => "home#sitemap", :format => :xml
 end
