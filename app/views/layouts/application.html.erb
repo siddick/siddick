@@ -15,7 +15,7 @@
     <div class="container">
       <div class="content">
         <div class="page-header<%= " tag-#{params[:tag]}" if params[:tag].present? %>">
-          <div class="share-this"><%= render "share_this" %></div>
+          <div class="share-this"><%= render "badges" %></div>
           <%= yield :page_header %>
         </div>
         <div class="row">
