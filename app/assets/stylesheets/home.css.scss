@@ -29,6 +29,9 @@ body {
   .container > footer p {
     text-align: center;
   }
+  .gsc-above-wrapper-area, .gsc-resultsHeader {
+    display: none;
+  }
 }
 
 /* fix label inside the input tag. For check-box */
