@@ -39,9 +39,8 @@ namespace :deploy do
     run "cd #{release_path}; ruby script/setup"
   end
   task :create_directories do
-    run "mkdir -p #{shared_path}/assets"
+    run "mkdir -p #{shared_path}/assets #{shared_path}/log"
     run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
-    run "mkdir -p #{shared_path}/log"
     run "ln -sfT #{shared_path}/log #{release_path}/log"
   end
 end
