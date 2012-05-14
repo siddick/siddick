@@ -44,5 +44,5 @@ namespace :deploy do
     run "ln -sfT #{shared_path}/log #{release_path}/log"
   end
 end
-before "deploy:assets:precompile", "deploy:create_directories"
+before "bundle:install", "deploy:create_directories"
 before "bundle:install", "deploy:default_setup"
