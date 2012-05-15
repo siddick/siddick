@@ -13,7 +13,11 @@
       <div class="content">
         <div class="page-header<%= " tag-#{params[:tag]}" if params[:tag].present? %>">
           <div class="share-this"><%= render "badges" %></div>
-          <%= yield :page_header %>
+          <% if content_for? :page_header %>
+            <%= yield :page_header %>
+          <% else %>
+            <h1><%= params[:action].humanize %></h1>
+          <% end %>
         </div>
         <div class="row">
           <div class="span9 main">
