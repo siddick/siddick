@@ -11,7 +11,7 @@
     <header><%= render "topbar" %></header>
     <div class="container">
       <div class="content">
-        <div class="page-header<%= " tag-#{params[:tag]}" if params[:tag].present? %>">
+        <div class="page-header<%= " tag tag-#{params[:tag]}" if params[:tag].present? %>">
           <div class="pull-right"><%= render "badges" %></div>
           <% if content_for? :page_header %>
             <%= yield :page_header %>

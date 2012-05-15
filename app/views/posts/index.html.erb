@@ -1,5 +1,5 @@
 <% content_for(:page_header) do %>
-  <h1>Home</h1>
+  <h1><%= params[:tag].present? ? params[:tag].humanize : "Home" %></h1>
 <% end %>
 
 <div class="posts">

@@ -25,6 +25,9 @@ body {
         overflow: hidden;
       }
     }
+    .page-header.tag {
+      background-image: url("tag.png");
+    }
   }
   .container > footer p {
     text-align: center;
