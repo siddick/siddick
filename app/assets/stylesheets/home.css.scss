@@ -40,19 +40,3 @@ body {
   }
 }
 
-/* fix label inside the input tag. For check-box */
-.input {
-  label {
-    width: auto;
-    float: none;
-    text-align: left;
-  }
-}
-
-.badges {
-  img {
-    width: 32px;
-    height: 32px;
-    border: 0px;
-  }
-}
