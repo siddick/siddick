@@ -29,6 +29,12 @@ body {
   .container > footer p {
     text-align: center;
   }
+  .navbar .brand {
+    color: #fff;
+  }
+  .navbar-search .search-query {
+    @include border-radius(2px);
+  }
   .gsc-above-wrapper-area, .gsc-resultsHeader {
     display: none;
   }
