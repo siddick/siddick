@@ -15,11 +15,9 @@
   </div>
   <% end -%>
   <div class="form-actions">
-    <div class="pull-right">
-      <%= render :partial => "user/shared/links" %>
-    </div>
     <%= f.submit "Sign in", :class => "btn btn-primary", :disable_with => "Validating..." %>
     <%= link_to "Cancel", root_path, :class => "btn" %>
   </div>
 <% end %>
 
+<%= render :partial => "user/shared/links" %>
