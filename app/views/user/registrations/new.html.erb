@@ -6,11 +6,11 @@
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :password %>
-  <div class="actions">
+  <div class="form-actions">
     <div class="pull-right">
       <%= render :partial => "user/shared/links" %>
     </div>
-    <%= f.submit "Sign up", :class => "btn primary" %>
+    <%= f.submit "Sign up", :class => "btn btn-primary" %>
     <%= link_to "Cancel", root_path, :class => "btn" %>
   </div>
 <% end %>

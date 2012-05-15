@@ -32,6 +32,9 @@ body {
   .gsc-above-wrapper-area, .gsc-resultsHeader {
     display: none;
   }
+  .page-header h1 {
+    margin-bottom: 8px;
+  }
 }
 
 /* fix label inside the input tag. For check-box */
