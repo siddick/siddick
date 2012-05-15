@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts  = Post.last_posted.page(params[:page])
+    @posts  = Post.published.page(params[:page])
     @posts  = @posts.tagged_with(params[:tag]) if params[:tag].present?
   end
 

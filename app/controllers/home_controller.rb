@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def sitemap
-    @posts = Post.last_posted.select("id, slug, updated_at")
+    @posts = Post.published.select("id, slug, updated_at")
   end
 
 end

@@ -9,9 +9,9 @@ ActiveAdmin::Dashboards.build do
       user.column :last_sign_in_at
     end
   end
-  
+
   section "Posts" do
-    table_for Post.last_posted.limit(5) do |post|
+    table_for Post.published.limit(5) do |post|
       post.column :title do |post|
         link_to post.title, admin_post_path(post)
       end

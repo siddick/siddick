@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :archive
 
-  scope :last_posted, where(:published => true).order("published_at DESC")
+  scope :published, where(:published => true).order("published_at DESC")
 
   extend FriendlyId
   friendly_id :title, :use => :slugged
