@@ -20,4 +20,6 @@
   </div>
 <% end %>
 
-<%= render :partial => "user/shared/links" %>
+<% content_for(:sidebar) do %>
+  <%= render :partial => "user/shared/links" %>
+<% end %>
