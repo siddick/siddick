@@ -35,6 +35,9 @@ body {
   .navbar .brand {
     color: #fff;
   }
+  .social-icons {
+    padding: 3px 0px;
+  }
   .navbar-search .search-query {
     @include border-radius(2px);
   }
