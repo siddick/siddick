@@ -43,3 +43,22 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+
+body {
+  div.content {
+    .main, .sidebar {
+      min-height: 0px;
+    }
+    .main {
+      border-bottom: 1px solid #eee;
+    }
+    .sidebar {
+      margin-left: 0px;
+      padding-left: 0px;
+      border-left: 0px solid #eee;
+    }
+  }
+}
+
+}
