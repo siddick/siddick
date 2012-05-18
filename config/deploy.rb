@@ -22,6 +22,11 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "sudo service #{application} restart"
   end
+  task :assets do
+    system "rake assets:precompile"
+    transfer( :up, "public/assets", shared_path, :via=> :scp, :recursive => true)
+    system "rm public/assets/ -r"
+  end
   task :service do
     run "echo 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"
     run "cd #{current_path}; rvmsudo bundle exec foreman export upstart /etc/init -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=1 -p #{deploy_port}"
@@ -46,3 +51,4 @@ namespace :deploy do
 end
 before "bundle:install", "deploy:create_directories"
 before "bundle:install", "deploy:default_setup"
+after  "bundle:install", "deploy:assets"
