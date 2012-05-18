@@ -10,4 +10,10 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
       xml.lastmod post.updated_at.to_date
     end
   end
+  @tags.each do |tag|
+    xml.url do
+      xml.loc posts_url(:tag => tag.name)
+      xml.lastmod Date.today
+    end
+  end
 end
