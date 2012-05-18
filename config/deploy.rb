@@ -24,7 +24,7 @@ namespace :deploy do
   end
   task :assets do
     system "rake assets:precompile"
-    transfer( :up, "public/assets", shared_path, :via=> :scp, :recursive => true)
+    transfer( :up, "public/assets", shared_path, :via => :scp, :recursive => true)
     system "rm public/assets/ -r"
   end
   task :service do
