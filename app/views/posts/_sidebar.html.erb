@@ -1,5 +1,5 @@
 <ul>
-  <% Post.tag_counts.order("count DESC").each do |tag| %>
+  <% Post.published.tag_counts.order("count DESC").each do |tag| %>
     <li><%= link_to "#{tag.name}(#{tag.count})", posts_path(:tag => tag.name), :class => (tag.name == params[:tag] ? "active" : "") %></li>
   <% end %>
 </ul>

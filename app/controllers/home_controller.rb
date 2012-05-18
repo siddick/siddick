@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def sitemap
     @posts = Post.published.select("id, slug, updated_at")
-    @tags  = Post.tag_counts
+    @tags  = Post.published.tag_counts
   end
 
 end
