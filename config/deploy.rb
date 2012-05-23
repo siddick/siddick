@@ -22,7 +22,12 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "sudo service #{application} restart"
   end
-  task :assets do
+  task :with_assets do
+    update_code
+    upload_assets
+    restart
+  end
+  task :upload_assets do
     system "rake assets:precompile"
     transfer( :up, "public/assets", shared_path, :via => :scp, :recursive => true)
     system "rm public/assets/ -r"
@@ -51,4 +56,3 @@ namespace :deploy do
 end
 before "bundle:install", "deploy:create_directories"
 before "bundle:install", "deploy:default_setup"
-after  "bundle:install", "deploy:assets"
