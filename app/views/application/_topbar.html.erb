@@ -25,7 +25,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      <div class="nav-collapse">
+      <div class="pull-left hidden-phone">
       <%= form_tag search_path, :method => :get, :class => "navbar-search pull-left" do %>
         <%= text_field_tag "q", params[:q], :class => "search-query", :id => "search-q", :placeholder => "Search" %>
       <% end %>
