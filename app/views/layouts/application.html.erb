@@ -3,7 +3,7 @@
   <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://plus.google.com/103719245554204460362" rel="publisher" />
-    <title><%= "#{@post.title} - " if @post.present? %>Siddick</title>
+    <title><%= "#{title} - " if title.present? %>Siddick</title>
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -11,13 +11,13 @@
     <header><%= render "topbar" %></header>
     <div class="container">
       <div class="content">
-        <div class="page-header<%= " tag tag-#{params[:tag]}" if params[:tag].present? %>">
-         <% if content_for? :page_header %>
-            <%= yield :page_header %>
-          <% else %>
-            <h1><%= params[:action].humanize %></h1>
-          <% end %>
-        </div>
+        <% if content_for? :page_header %>
+          <%= yield :page_header %>
+        <% else %>
+          <div class="page-header<%= " tag tag-#{params[:tag]}" if params[:tag].present? %>">
+            <h1><%= title ? title : params[:action].humanize %></h1>
+          </div>
+        <% end %>
         <div class="row">
           <div class="span9 main">
             <%= render "error_messages" %>
