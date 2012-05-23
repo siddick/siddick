@@ -8,7 +8,7 @@ Siddick::Application.load_tasks
 
 task :deploy_on_heroku do
   system <<-SYSTEM
-    git checkout heroku
+    git checkout heroku || git checkout -b heroku
     git merge master
     git rm public/assets -fr
     bundle exec rake assets:precompile
