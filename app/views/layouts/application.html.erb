@@ -3,7 +3,7 @@
   <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://plus.google.com/103719245554204460362" rel="publisher" />
-    <title><%= "#{@post.title} | " if @post.present? %>Siddick.in</title>
+    <title><%= "#{@post.title} - " if @post.present? %>Siddick</title>
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -12,7 +12,6 @@
     <div class="container">
       <div class="content">
         <div class="page-header<%= " tag tag-#{params[:tag]}" if params[:tag].present? %>">
-          <div class="pull-right"></div>
          <% if content_for? :page_header %>
             <%= yield :page_header %>
           <% else %>
