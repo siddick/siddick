@@ -28,9 +28,10 @@ namespace :deploy do
     restart
   end
   task :upload_assets do
-    system "rake assets:precompile"
+    system "rake compile_assets_on_heroku"
+    system "git checkout heroku"
     transfer( :up, "public/assets", shared_path, :via => :scp, :recursive => true)
-    system "rm public/assets/ -r"
+    system "git checkout master"
   end
   task :service do
     run "echo 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"

@@ -6,7 +6,7 @@ require File.expand_path('../config/application', __FILE__)
 
 Siddick::Application.load_tasks
 
-task :deploy_on_heroku do
+task :compile_assets_on_heroku do
   system <<-SYSTEM
     git checkout heroku || git checkout -b heroku
     git merge master
@@ -14,7 +14,12 @@ task :deploy_on_heroku do
     bundle exec rake assets:precompile
     git add public/assets -f
     git commit -m "Update assets" public/assets
-    git push heroku heroku:master
     git checkout master
+  SYSTEM
+end
+
+task :deploy_on_heroku => :compile_assets_on_heroku do
+  system <<-SYSTEM
+    git push heroku heroku:master
   SYSTEM
 end
