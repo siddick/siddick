@@ -7,8 +7,9 @@ require File.expand_path('../config/application', __FILE__)
 Siddick::Application.load_tasks
 
 task :compile_assets_on_heroku do
+
+  system("git checkout heroku") || abort("Please correct the problem")
   system <<-SYSTEM
-    git checkout heroku || git checkout -b heroku
     git merge master
     git rm public/assets -fr
     bundle exec rake assets:precompile
