@@ -23,7 +23,7 @@ namespace :deploy do
     run "sudo service #{application} restart"
   end
   task :with_assets do
-    update_code
+    update
     upload_assets
     restart
   end
