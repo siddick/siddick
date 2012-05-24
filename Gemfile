@@ -32,8 +32,6 @@ group :test do
   gem 'simplecov', :require => false
   gem 'guard-rspec'
   gem 'spork', '>= 0.9.0.rc9'
-  gem 'rb-inotify'
-  gem 'libnotify'
   gem 'guard-spork'
 end
 
