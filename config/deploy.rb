@@ -28,7 +28,7 @@ namespace :deploy do
     restart
   end
   task :upload_assets do
-    system "rake compile_assets_on_heroku"
+    system "rake heroku:compile_assets"
     system "git checkout heroku"
     transfer( :up, "public/assets", shared_path, :via => :scp, :recursive => true)
     system "git checkout master"

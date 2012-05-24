@@ -6,7 +6,7 @@
 ```
 git remote add heroku git@heroku.com:<your-project-repo>.git
 git fetch heroku master:heroku
-rake deploy_on_heroku
+rake heroku:deploy
 heroku run "rake db:migrate"
 ```
 
