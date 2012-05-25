@@ -3,7 +3,7 @@
   <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://plus.google.com/103719245554204460362" rel="publisher" />
-    <title><%= "#{title} - " if title.present? %>Siddick</title>
+    <title><%= title %> - Siddick</title>
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -15,7 +15,7 @@
         <% if content_for? :page_header %>
           <%= yield :page_header %>
         <% else %>
-          <h1><%= title ? title : params[:action].humanize %></h1>
+          <h1><%= title %></h1>
         <% end %>
         </div>
         <div class="row">
@@ -23,13 +23,13 @@
             <%= render "error_messages" %>
             <%= yield %>
           </div>
-          <div class="span3 sidebar">
+          <aside class="span3 sidebar">
             <%= render "sidebar" %>
-          </div>
+          </aside>
         </div>
       </div>
-      <footer><p>My blog.</p></footer>
     </div>
+    <footer><p>My blog.</p></footer>
     <%= javascript_include_tag "application" %>
     <%= render "google_analytics" %>
   </body>

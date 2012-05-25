@@ -28,7 +28,8 @@ body {
       background-image: url("tag.png");
     }
   }
-  .container > footer p {
+  footer {
+    padding-top: 10px;
     text-align: center;
   }
   .navbar .brand {
