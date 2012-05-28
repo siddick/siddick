@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510154623) do
+ActiveRecord::Schema.define(:version => 20120528100933) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(:version => 20120510154623) do
     t.integer  "failed_attempts",                       :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "authentication_token"
     t.string   "type"
     t.string   "name"
     t.string   "avatar_url"
@@ -87,7 +86,6 @@ ActiveRecord::Schema.define(:version => 20120510154623) do
     t.datetime "updated_at",                                            :null => false
   end
 
-  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
