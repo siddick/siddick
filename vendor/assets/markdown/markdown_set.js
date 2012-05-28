@@ -22,7 +22,7 @@
       {separator:'---------------' },
       {name:'Picture', key:'P', replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
       {name:'Link', key:'L', openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")', placeHolder:'Your text to link here...' },
-      {name:'Video', key:'V', className:'tinyUrl', openWith:function(markItUp) { return findVideo(markItUp) } },
+      {name:'Video', key:'Y', className:'tinyUrl', openWith:function(markItUp) { return findVideo(markItUp) } },
       {separator:'---------------'},
       {name:'Quotes', openWith:'> '},
       {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
