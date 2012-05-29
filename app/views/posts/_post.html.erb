@@ -1,6 +1,16 @@
 <%= content_tag( :article, "data-id" => post.to_param, "data-updated-at" => post.updated_at, "data-published" => post.published ) do %>
   <% unless @post %>
-    <h3><%= link_to post.title, post %></h3>
+    <header>
+      <div class="pull-right">
+        <span class="icon-tag" >
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.name, posts_path(:tag => tag.name) %>
+          <% end %>
+        </span>
+        <span class="icon-time" > <%= post.published_at.strftime("%d, %b") %> </span>
+      </div>
+      <h3 class="icon-calendar" > <%= link_to post.title, post %> </h3>
+    </header>
   <% end %>
   <%= post.content ? post.content.html_safe : post.raw_content %>
 <% end %>

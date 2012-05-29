@@ -27,6 +27,10 @@ div.content {
     background-image: url("tag.png");
   }
 }
+article {
+  margin-bottom: 20px;
+  header { margin-bottom: 10px; }
+}
 footer {
   padding-top: 10px;
   text-align: center;
