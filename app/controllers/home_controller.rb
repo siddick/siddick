@@ -8,4 +8,8 @@ class HomeController < ApplicationController
     @tags  = Post.published.tag_counts
   end
 
+  def not_found
+    redirect_to root_path, :alert => "Requested page is unavailable !!!"
+  end
+
 end

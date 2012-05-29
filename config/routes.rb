@@ -9,4 +9,7 @@ Siddick::Application.routes.draw do
   root :to => "posts#index"
   get "sitemap.xml" => "home#sitemap", :format => :xml
   get "search" => "home#search"
+
+  match "*path" => "home#not_found"
+
 end
