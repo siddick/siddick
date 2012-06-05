@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.5'
 gem 'devise'
 gem 'activeadmin',  '>= 0.4.0'
 gem 'sass-rails',   '~> 3.2.0'
