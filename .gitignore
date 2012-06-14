@@ -8,3 +8,4 @@ public/assets
 config/*.yml
 solr/
 .vagrant
+.env

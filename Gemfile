@@ -11,6 +11,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'video_info'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'

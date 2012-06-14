@@ -1,0 +1,4 @@
+<% AdminUser.all.each do |user| %>
+  <%= image_tag user.avatar_url, :alt => "" %>
+  <p> Name:  <%= user.name %> </p>
+<% end %>
