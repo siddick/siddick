@@ -34,7 +34,7 @@ namespace :deploy do
     system "git checkout master"
   end
   task :service do
-    run "echo '#{ENV['ENVS']}\nRAILS_ENV=#{rails_env}' > #{shared_path}/env"
+    run "echo -e '#{ENV['ENVS']}\\nRAILS_ENV=#{rails_env}' > #{shared_path}/env"
     run "cd #{current_path}; rvmsudo bundle exec foreman export upstart /etc/init -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=1 -p #{deploy_port}"
   end
 end
