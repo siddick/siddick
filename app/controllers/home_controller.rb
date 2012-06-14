@@ -16,6 +16,7 @@ class HomeController < ApplicationController
     if request.post? and params[:contact].present?
       @contact = Contact.new(params[:contact])
       if @contact.valid? and verify_recaptcha(:model => @contact, :attribute => "recaptcha")
+        ContactAdmin.contact_us(@contact).deliver
         redirect_to root_path, :notice => "Message send successfully"
       end
     else

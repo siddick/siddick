@@ -1,5 +1,5 @@
 class ContactAdmin < ActionMailer::Base
-  default from: "from@example.com"
+  default :from => "no-reply@#{ENV["DOMAIN"] || "siddick.com"}"
 
   def contact_us(contact)
     @contact = contact
