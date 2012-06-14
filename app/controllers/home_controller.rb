@@ -15,13 +15,18 @@ class HomeController < ApplicationController
   def contact
     if request.post? and params[:contact].present?
       @contact = Contact.new(params[:contact])
-      if @contact.valid? and verify_recaptcha(:model => @contact, :attribute => "recaptcha")
+      if @contact.valid? and validate_recaptcha(@contact)
         ContactAdmin.contact_us(@contact).deliver
         redirect_to root_path, :notice => "Message send successfully"
       end
     else
       @contact = Contact.new
     end
+  end
+
+  private
+  def validate_recaptcha(resource)
+    ENV['RECAPTCHA_PUBLIC_KEY'].blank? || verify_recaptcha(:model => resource, :attribute => "recaptcha")
   end
 
 end

@@ -5,6 +5,11 @@ module HomeHelper
         recaptcha_tags +
         content_tag("span", resouce.errors[:recaptcha].join, :class => "help-inline")
       end
-    end
+    end if ENV['RECAPTCHA_PUBLIC_KEY'].present?
+  end
+
+  def gravatar_image_url(email, size = 140)
+    gravatar_id = Digest::MD5.hexdigest(email.downcase)
+    "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
 end

@@ -1,8 +1,8 @@
 <% AdminUser.all.each do |user| %>
 <div class="row">
-  <%= image_tag user.avatar_url, :alt => "", :class => "span2" %>
+  <%= image_tag gravatar_image_url(user.email), :alt => ":)", :class => "span2" %>
   <div class="span7">
-    <p><%= user.name %></p>
+    <h3><%= user.name %></h3>
     <p><%= user.description %></p>
   </div>
 </div>
