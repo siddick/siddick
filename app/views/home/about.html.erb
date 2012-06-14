@@ -1,4 +1,9 @@
 <% AdminUser.all.each do |user| %>
-  <%= image_tag user.avatar_url, :alt => "" %>
-  <p> Name:  <%= user.name %> </p>
+<div class="row">
+  <%= image_tag user.avatar_url, :alt => "", :class => "span2" %>
+  <div class="span7">
+    <p><%= user.name %></p>
+    <p><%= user.description %></p>
+  </div>
+</div>
 <% end %>
