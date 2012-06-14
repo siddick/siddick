@@ -51,6 +51,7 @@ namespace :deploy do
   end
   task :create_directories do
     run "mkdir -p #{shared_path}/assets #{shared_path}/log"
+    run "rm -rf #{release_path}/public/assets #{release_path}/log; true"
     run "ln -sfT #{shared_path}/assets #{release_path}/public/assets"
     run "ln -sfT #{shared_path}/log #{release_path}/log"
   end
