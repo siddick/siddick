@@ -7,11 +7,11 @@ ActiveAdmin.register AdminUser do
     column :email
     default_actions
   end
-  
+
   filter :name
-  
+
   form do |f|
-    f.inputs :name, :email, :password
+    f.inputs :name, :email
     f.buttons
   end
 end

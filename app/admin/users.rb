@@ -12,7 +12,7 @@ ActiveAdmin.register User do
   filter :name
 
   form do |f|
-    f.inputs :name, :email, :password, :description
+    f.inputs :name, :email, :description
     f.buttons
   end
 
