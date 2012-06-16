@@ -21,6 +21,17 @@ ActiveAdmin.register Post do
     def new
       new!{ @post.published_at = Time.now }
     end
+
+    def create
+      @post = Post.new(params[:post])
+      @post.user = current_admin_user
+      create!
+    end
+
+    def update
+      resource.user ||= current_admin_user
+      update!
+    end
   end
 
 end

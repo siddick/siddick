@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
-
   belongs_to :user
   acts_as_taggable
   acts_as_taggable_on :archive
+
+  attr_accessible :title, :raw_content, :tag_list, :published, :published_at
+
+  validates_presence_of :title, :raw_content, :published_at, :tag_list, :user_id
 
   scope :published, where(:published => true).order("published_at DESC")
 
