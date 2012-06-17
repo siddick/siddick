@@ -5,6 +5,7 @@ FactoryGirl.define do
     association   :user
     title         "Title"
     raw_content   "Content"
+    tag_list      "test"
     published     true
     published_at  2.days.ago
   end
