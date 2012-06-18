@@ -18,6 +18,8 @@ ActiveAdmin.register Post do
   end
 
   controller do
+    cache_sweeper :post_sweeper
+
     def new
       new!{ @post.published_at = Time.now }
     end

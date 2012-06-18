@@ -1,6 +1,11 @@
 Siddick::Application.routes.draw do
-  resources :posts, :only => [ :index, :show ]
-  get "tags/:tag" => "posts#index", :as => :tag
+  resources :posts, :only => [ :index, :show ] do
+    collection do
+      get "tags/:tag/page/:page" => "posts#index"
+      get "tags/:tag" => "posts#index", :as => :tag
+      get "page/:page" => "posts#index"
+    end
+  end
 
   ActiveAdmin.routes(self)
 

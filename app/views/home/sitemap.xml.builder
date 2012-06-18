@@ -14,7 +14,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   end
   @tags.each do |tag|
     xml.url do
-      xml.loc tag_url(tag.name)
+      xml.loc tag_posts_url(tag.name)
       xml.lastmod Date.today
     end
   end

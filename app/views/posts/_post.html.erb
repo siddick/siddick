@@ -4,7 +4,7 @@
       <div class="pull-right">
         <span class="icon-tag" >
           <% post.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag.name) %>
+            <%= link_to tag.name, tag_posts_path(tag.name) %>
           <% end %>
         </span>
         <span class="icon-time" > <%= post.published_at.strftime("%d, %b") %> </span>

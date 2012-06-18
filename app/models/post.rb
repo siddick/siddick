@@ -1,7 +1,10 @@
 class Post < ActiveRecord::Base
+
   belongs_to :user
   acts_as_taggable
   acts_as_taggable_on :archive
+
+  paginates_per 10
 
   attr_accessible :title, :raw_content, :tag_list, :published, :published_at
 
