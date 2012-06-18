@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  caches_action :index
+  caches_action :index, :show, :layout => false
 
   def index
     @posts  = Post.published.includes(:tags).page(params[:page])

@@ -19,6 +19,7 @@ class PostSweeper < ActionController::Caching::Sweeper
     Post.published.tag_counts.each do |tag|
       expire_all_pages(tag_posts_url(tag.name), tag.count)
     end
+    expire_action(post_url(post))
     expire_fragment('tag_counts')
   end
 
