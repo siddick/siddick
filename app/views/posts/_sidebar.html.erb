@@ -1,6 +1,8 @@
+<% cache "tag_counts" do %>
 <ul>
   <% Post.published.tag_counts.order("count DESC").each do |tag| %>
     <li><%= link_to "#{tag.name}(#{tag.count})", tag_posts_path(tag.name), :class => (tag.name == params[:tag] ? "active" : "") %></li>
   <% end %>
 </ul>
+<% end %>
 <%= render "application/sidebar" %>

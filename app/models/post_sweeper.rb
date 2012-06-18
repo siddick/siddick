@@ -15,8 +15,8 @@ class PostSweeper < ActionController::Caching::Sweeper
 
   private
   def expire_cache_for(post)
-    expire_all_pages(posts_url, Post.count)
-    Post.tag_counts.each do |tag|
+    expire_all_pages(posts_url, Post.published.count)
+    Post.published.tag_counts.each do |tag|
       expire_all_pages(tag_posts_url(tag.name), tag.count)
     end
     expire_fragment('tag_counts')
