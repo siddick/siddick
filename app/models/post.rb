@@ -15,8 +15,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  before_save :generate_content, :if => :raw_content_changed?
-  before_save :add_archive_list, :if => :published_at_changed?
+  before_validation :generate_content, :if => :raw_content_changed?
+  before_validation :add_archive_list, :if => :published_at_changed?
 
   def generate_content
     self.content = GenerateContent.render(raw_content)
