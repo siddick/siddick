@@ -8,6 +8,7 @@ Siddick::Application.routes.draw do
   end
 
   ActiveAdmin.routes(self)
+  match '/auth/:provider/callback', to: 'auth_providers#create'
 
   devise_for :user
 

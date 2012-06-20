@@ -13,6 +13,9 @@ gem 'acts-as-taggable-on'
 gem 'video_info'
 gem 'recaptcha', :require => 'recaptcha/rails'
 
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier',     '>= 1.0.3'
