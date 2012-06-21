@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def self.caches_page(*args)
+    before_filter :set_page_caching, :actions => args
+    super
+  end
+
+  def set_page_caching
+    @page_caching = true
+  end
 end

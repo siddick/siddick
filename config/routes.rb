@@ -13,10 +13,11 @@ Siddick::Application.routes.draw do
   devise_for :user
 
   root :to => "posts#index"
-  get "sitemap.xml" => "home#sitemap", :format => :xml
-  get "search"      => "home#search"
-  get "about"       => "home#about"
-  match "contact"     => "home#contact"
+  get "sitemap"    => "home#sitemap", :format => :xml
+  get "search"         => "home#search"
+  get "about"          => "home#about"
+  match "contact"      => "home#contact"
+  get "update_caching" => "application#update_caching", :format => :js
 
   match "*path" => "home#not_found"
 

@@ -4,7 +4,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://plus.google.com/103719245554204460362" rel="publisher" />
     <title><%= title %> - Siddick</title>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="span9 main">
-            <%= render "error_messages" %>
+            <div id="error_messages"><%= render "error_messages" unless @page_caching %></div>
             <%= yield %>
           </div>
           <aside class="span3 sidebar">
@@ -32,5 +32,6 @@
     <footer><p>My blog.</p></footer>
     <%= javascript_include_tag "application" %>
     <%= render "google_analytics" %>
+    <%= javascript_tag "$.getScript('#{update_caching_path("js")}');" if @page_caching %>
   </body>
 </html>
