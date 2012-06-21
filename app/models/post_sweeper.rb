@@ -15,19 +15,20 @@ class PostSweeper < ActionController::Caching::Sweeper
 
   private
   def expire_cache_for(post)
+    expire_page(root_path)
     expire_all_pages(posts_url, Post.published.count)
     Post.published.tag_counts.each do |tag|
       expire_all_pages(tag_posts_url(tag.name), tag.count)
     end
-    expire_action(post_url(post))
+    expire_page(post_url(post))
     expire_fragment('tag_counts')
   end
 
   def expire_all_pages(expire_url, posts_count)
     pages = posts_count / Post.default_per_page
-    expire_action(expire_url)
+    expire_page(expire_url)
     pages.times do |page|
-      expire_action("#{expire_url}/page/#{page}")
+      expire_page("#{expire_url}/page/#{page}")
     end
   end
 end
