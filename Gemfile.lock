@@ -248,6 +248,8 @@ GEM
     redcarpet (2.1.1)
     responders (0.9.1)
       railties (~> 3.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
@@ -345,6 +347,7 @@ DEPENDENCIES
   rails (= 3.2.6)
   recaptcha
   redcarpet
+  rest-client
   rspec-rails
   rvm-capistrano
   sass-rails (~> 3.2.0)

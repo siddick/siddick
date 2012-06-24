@@ -15,6 +15,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'rest-client'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
