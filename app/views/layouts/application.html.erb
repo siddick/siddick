@@ -5,7 +5,7 @@
     <link href="https://plus.google.com/103719245554204460362" rel="publisher" />
     <title><%= title %> - Siddick</title>
     <%= stylesheet_link_tag "application" %>
-    <%= csrf_meta_tags %>
+    <%= csrf_meta_tags unless @page_caching %>
   </head>
   <body>
     <header><%= render "topbar" %></header>
