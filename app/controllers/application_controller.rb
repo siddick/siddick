@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_page_caching
-    @page_caching = true
+    @page_caching = self.perform_caching
   end
 end
