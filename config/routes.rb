@@ -1,10 +1,14 @@
 Siddick::Application.routes.draw do
+
   resources :posts, :only => [ :index, :show ] do
     collection do
       get "tags/:tag/page/:page" => "posts#index"
       get "tags/:tag" => "posts#index", :as => :tag
       get "page/:page" => "posts#index"
     end
+  end
+  resource :profile, :only => [ :show, :update ] do
+    get ":provider/auto_publish" => "profiles#auto_publish"
   end
 
   ActiveAdmin.routes(self)
