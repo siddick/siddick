@@ -15,6 +15,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-github'
 gem 'rest-client'
 
 group :assets do
