@@ -1,5 +1,10 @@
+OmniauthProviders = {
+    :twitter  => { :auto_publish_scope => "" },
+    :facebook => { :auto_publish_scope => "" },
+    :github   => {} }
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter,   ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']   if ENV['TWITTER_KEY'].present?
-  provider :facebook,  ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'] if ENV['FACEBOOK_KEY'].present?
-  provider :github,    ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']     if ENV['GITHUB_KEY'].present?
+  OmniauthProviders.each do |name, options|
+    config_name = name.upcase
+    provider name, ENV["#{config_name}_KEY"], ENV["#{config_name}_SECRET"] if ENV["#{config_name}_KEY"].present?
+  end
 end
