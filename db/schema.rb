@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620071120) do
+ActiveRecord::Schema.define(:version => 20120628062451) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(:version => 20120620071120) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "auth_providers", :force => true do |t|
-    t.string   "provider",   :null => false
-    t.string   "uid",        :null => false
-    t.integer  "user_id",    :null => false
+    t.string   "provider",                        :null => false
+    t.string   "uid",                             :null => false
+    t.integer  "user_id",                         :null => false
     t.text     "extra"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "auto_publish", :default => false, :null => false
   end
 
   add_index "auth_providers", ["provider", "uid"], :name => "index_auth_providers_on_provider_and_uid", :unique => true

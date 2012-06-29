@@ -20,6 +20,14 @@
   </div>
 <% end %>
 
+  <div class="pagination-centered">
+    <p>(or)</p>
+  <% OmniauthProviders.each do |provider| %>
+    <%= link_to image_tag(provider_image(provider, 64), :alt => provider.to_s.humanize), "/auth/#{provider}" %>
+  <% end %>
+  </div>
+
+
 <% content_for(:sidebar) do %>
   <%= render :partial => "user/shared/links" %>
 <% end %>

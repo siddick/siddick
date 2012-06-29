@@ -8,7 +8,7 @@ Siddick::Application.routes.draw do
     end
   end
   resource :profile, :only => [ :show, :update ] do
-    get ":provider/auto_publish" => "profiles#auto_publish"
+    resources :auth_providers, :only => [ :destroy, :update ]
   end
 
   ActiveAdmin.routes(self)

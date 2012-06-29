@@ -1,5 +1,6 @@
+<h3>Add Providers</h3>
 <ul class="unstyled">
-<% OmniauthProviders.keys.each do |name| %>
+<% OmniauthProviders.each do |name| %>
   <li>
     <%= image_tag provider_image(name) %>
     <%= link_to name.to_s.humanize, "/auth/#{name}" %>

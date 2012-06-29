@@ -13,6 +13,4 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def auto_publish
-  end
 end

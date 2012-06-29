@@ -1,6 +1,9 @@
 class AuthProvider < ActiveRecord::Base
 
-  attr_accessible :provider, :uid, :info, :credentials
+  AutoPublish = { :facebook => { :scope => "publish_stream" },
+                  :twitter  => { :force_login =>true, :x_auth_access_type => "write" } }
+
+  attr_accessible :provider, :uid, :info, :credentials, :auto_publish
 
   belongs_to :user
   store :extra, :accessors => [ :info, :credentials ]
