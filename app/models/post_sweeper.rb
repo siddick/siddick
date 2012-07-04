@@ -16,8 +16,13 @@ class PostSweeper < ActionController::Caching::Sweeper
   private
   def expire_cache_for(post)
     expire_page(root_path)
-    expire_all_pages(posts_path)
-    expire_fragment('tag_counts')
+    if post.tag_list_changed?
+      expire_all_pages(posts_path) 
+      expire_fragment('tag_counts')
+    else
+      expire_page(posts_path)
+      expire_page(post_path(post))
+    end
   end
 
   def expire_all_pages(path)
