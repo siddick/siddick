@@ -7,17 +7,17 @@
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags unless @page_caching %>
   </head>
-  <body>
+  <body class="<%= body_class %>">
     <header><%= render "topbar" %></header>
     <div class="container">
       <div class="content">
-        <div class="page-header<%= " tag tag-#{params[:tag]}" if params[:tag].present? %>">
+        <header class="page-header <%= post_page_header_class %>">
         <% if content_for? :page_header %>
           <%= yield :page_header %>
         <% else %>
           <h1><%= title %></h1>
         <% end %>
-        </div>
+        </header>
         <div class="row">
           <div class="span9 main">
             <div id="error_messages"><%= render "error_messages" unless @page_caching %></div>
