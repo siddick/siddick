@@ -12,4 +12,8 @@ module HomeHelper
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
+
+  def icon_with_content(icon, content)
+    content_tag('span', '', :class => "icon-#{icon}") + content
+  end
 end

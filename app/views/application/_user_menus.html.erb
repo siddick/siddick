@@ -1,12 +1,15 @@
 <% if user_signed_in? %>
-  <% if current_user.admin? %>
-  <li><%= link_to "Dashboard", admin_dashboard_path %></li>
-  <% end %>
   <li class="dropdown" data-dropdown="dropdown">
-    <a href="#" class="dropdown-toggle"><%= current_user.name %> <b class="caret"></b></a>
+    <a href="#" class="dropdown-toggle">
+      <%= image_tag(gravatar_image_url(current_user.email, 20), :alt => current_user.name) %>
+      <b class="caret"></b>
+    </a>
     <ul class="dropdown-menu">
-      <li><%= link_to "Profile", profile_path %></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+      <% if current_user.admin? %>
+      <li><%= link_to icon_with_content('cog', 'Dashboard'), admin_dashboard_path %></li>
+      <% end %>
+      <li><%= link_to icon_with_content('user', 'Profile'),  profile_path %></li>
+      <li><%= link_to icon_with_content('off', 'Signout'),   destroy_user_session_path %></li>
     </ul>
   </li>
 <% end %>
