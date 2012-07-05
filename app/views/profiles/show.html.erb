@@ -1,6 +1,7 @@
-<%= simple_form_for(current_user, :url => profile_path, :html => { :method => :put }) do |f| %>
+<%= simple_form_for(current_user, :as => :user, :url => profile_path, :html => { :method => :put }) do |f| %>
   <%= f.input :name %>
   <%= f.input :email %>
+  <%= f.input :description, :as => :text, :input_html => { :rows => 3, :class => "input-xlarge" } %>
 
   <div class="control-group">
     <div class="controls">
