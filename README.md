@@ -1,4 +1,4 @@
-# Siddick [![Build Status](https://secure.travis-ci.org/siddick/siddick.png)](http://travis-ci.org/siddick/siddick) / [![Dep Status](https://gemnasium.com/siddick/siddick.png)](http://gemnasium.com/siddick/siddick)
+# Siddick [![Build Status](https://secure.travis-ci.org/siddick/siddick.png)](http://travis-ci.org/siddick/siddick) [![Dep Status](https://gemnasium.com/siddick/siddick.png)](http://gemnasium.com/siddick/siddick)  [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/siddick/siddick)
 
 
 ### Deploy on Heroku
