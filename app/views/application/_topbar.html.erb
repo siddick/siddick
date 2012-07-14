@@ -15,9 +15,9 @@
       </button>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <%= li_link_to "Home", root_path %>
+          <%= li_link_to "About", about_path %>
+          <%= li_link_to "Contact", contact_path %>
         </ul>
         <%= form_tag search_path, :method => :get, :class => "navbar-search" do %>
           <%= text_field_tag "q", params[:q], :class => "search-query", :id => "search-q", :placeholder => "Search" %>

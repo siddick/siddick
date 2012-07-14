@@ -7,6 +7,12 @@ module ApplicationHelper
     @title = page_title
   end
 
+  def li_link_to(name, path, *args)
+    content_tag("li", :class => (request.path == path) ? "active" : nil ) do
+      link_to(name, path, *args)
+    end
+  end
+
   def body_class
     "controller-#{params[:controller]} action-#{params[:action]}"
   end
