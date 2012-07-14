@@ -8,6 +8,7 @@ class AuthProvidersController < ApplicationController
       redirect_to profile_path, :notice => "Updated sucessfully"
     else
       sign_in_and_redirect auth_provider.user, :event => :authentication
+      current_user.remember_me!
     end
   end
 
