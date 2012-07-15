@@ -50,5 +50,7 @@ module Siddick
     end
 
     config.assets.initialize_on_precompile = false
+
+    config.action_controller.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST']
   end
 end
