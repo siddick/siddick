@@ -22,17 +22,6 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "sudo service #{application} restart"
   end
-  task :with_assets do
-    update
-    upload_assets
-    restart
-  end
-  task :upload_assets do
-    system "rake heroku:compile_assets"
-    system "git checkout heroku"
-    transfer( :up, "public/assets", shared_path, :via => :scp, :recursive => true)
-    system "git checkout master"
-  end
   task :service do
     run "echo -e '#{ENV['ENVS']}\\nRAILS_ENV=#{rails_env}' > #{shared_path}/env"
     run "cd #{current_path}; rvmsudo bundle exec foreman export upstart /etc/init -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=1 -p #{deploy_port}"
