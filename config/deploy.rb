@@ -23,8 +23,10 @@ namespace :deploy do
     run "sudo service #{application} restart"
   end
   task :service do
-    run "echo -e '#{ENV['ENVS']}\\nRAILS_ENV=#{rails_env}' > #{shared_path}/env"
+    run "test -f #{shared_path}/env || echo -e 'RAILS_ENV=#{rails_env}' > #{shared_path}/env"
+    deploy.stop
     run "cd #{current_path}; rvmsudo bundle exec foreman export upstart /etc/init -f Procfile -e #{shared_path}/env -u #{user} -a #{application} -l #{shared_path}/log -d #{current_path} -c web=1 -p #{deploy_port}"
+    deploy.start
   end
 end
 
