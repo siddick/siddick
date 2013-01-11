@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.11'
 gem 'devise'
 gem 'activeadmin',  '>= 0.4.0'
 gem 'sass-rails',   '~> 3.2.0'
@@ -13,6 +13,8 @@ gem 'acts-as-taggable-on'
 gem 'video_info'
 gem 'recaptcha', :require => 'recaptcha/rails'
 
+gem 'less-rails'
+
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
@@ -22,6 +24,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier',     '>= 1.0.3'
   gem 'compass-rails'
+  gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
 end
 gem 'jquery-rails'

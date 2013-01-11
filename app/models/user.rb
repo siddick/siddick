@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   store :properties, :accessors => [ :description ]
   has_many :auth_providers, :autosave => true, :dependent => :delete_all, :order => "id ASC"
+  has_many :posts
 
   validates_presence_of :name, :email
   # validates_presence_of :password, :on => :create

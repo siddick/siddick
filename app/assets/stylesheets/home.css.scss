@@ -30,7 +30,8 @@ footer {
   padding: 3px 0px;
 }
 .navbar-search .search-query {
-  @include border-radius(2px);
+  @include border-top-radius(2px);
+  @include border-bottom-radius(2px);
 }
 .gsc-above-wrapper-area, .gsc-resultsHeader {
   display: none;
