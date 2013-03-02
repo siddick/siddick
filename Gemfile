@@ -24,13 +24,13 @@ gem 'omniauth-github'
 gem 'rest-client'
 
 gem 'dalli'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier',     '>= 1.0.3'
   gem 'compass-rails'
   gem 'therubyracer'
-  gem 'twitter-bootstrap-rails'
 end
 gem 'jquery-rails'
 
