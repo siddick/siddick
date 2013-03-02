@@ -1,7 +1,6 @@
-$('#error_messages').html(<%= render("error_messages").to_json.html_safe %>);
+$('#error_messages').html(<%= flash_block.to_json.html_safe %>);
 $('#user_menus').html(<%= render("user_menus").to_json.html_safe %>);
 $('head').append(<%= csrf_meta_tags.to_json.html_safe %>);
-
 <% if current_user.try :admin? %>
   $('.admin').show();
 <% end %>

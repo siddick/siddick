@@ -11,7 +11,6 @@ Siddick::Application.routes.draw do
     resources :auth_providers, :only => [ :destroy, :update ]
   end
 
-  ActiveAdmin.routes(self)
   match '/auth/:provider/callback', to: 'auth_providers#create'
 
   devise_for :user

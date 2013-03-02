@@ -1,0 +1,10 @@
+- if user_signed_in?
+  %li.dropdown{"data-dropdown" => "dropdown"}
+    %a.dropdown-toggle{:href => "#"}
+      = image_tag(gravatar_image_url(current_user.email, 18), :alt => current_user.name)
+      %b.caret
+    %ul.dropdown-menu
+      - if current_user.admin?
+        %li= link_to icon_with_content('cog', 'Dashboard'), "/admin"
+      %li= link_to icon_with_content('user', 'Profile'),  profile_path
+      %li= link_to icon_with_content('off', 'Signout'),   destroy_user_session_path

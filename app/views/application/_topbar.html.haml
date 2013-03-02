@@ -1,0 +1,19 @@
+.navbar.navbar-static-top
+  .navbar-inner
+    .container
+      %a.brand{:href => "/", :title => "Siddick"} Si
+      .social-icons.pull-right.btn-group
+        = render "badges"
+      %ul#user_menus.nav.pull-right
+        = render 'user_menus' unless @page_caching
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .nav-collapse.collapse
+        %ul.nav
+          = li_link_to "Home", root_path
+          = li_link_to "About", about_path
+          = li_link_to "Contact", contact_path
+        = form_tag search_path, :method => :get, :class => "navbar-search" do
+          = text_field_tag "q", params[:q], :class => "search-query", :id => "search-q", :placeholder => "Search"

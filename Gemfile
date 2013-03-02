@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 gem 'rails', '3.2.12'
 gem 'devise'
-gem 'activeadmin',  '>= 0.4.0'
 gem 'sass-rails',   '~> 3.2.0'
 gem 'friendly_id'
 gem 'redcarpet'
@@ -12,8 +13,10 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'video_info'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'will_paginate', '~> 3.0'
 
 gem 'less-rails'
+gem 'haml-rails'
 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

@@ -1,0 +1,6 @@
+.posts
+  - if @posts.present?
+    = render @posts
+  - else
+    %p No records found.
+= will_paginate @posts

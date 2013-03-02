@@ -8,7 +8,7 @@ module HomeHelper
     end if ENV['RECAPTCHA_PUBLIC_KEY'].present?
   end
 
-  def gravatar_image_url(email, size = 140)
+  def gravatar_image_url(email, size = 170)
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end

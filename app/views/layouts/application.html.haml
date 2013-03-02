@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "https://plus.google.com/103719245554204460362", :rel => "publisher"}/
+    %title #{title} - Siddick
+    = stylesheet_link_tag "application"
+    = csrf_meta_tags unless @page_caching
+  %body{:class => body_class}
+    %header= render "topbar"
+    .container
+      .content
+        %header{:class => "page-header #{post_page_header_class}"}
+          - if content_for? :page_header
+            = yield :page_header
+          - else
+            %h1= title
+        .row
+          .span9.main
+            #error_messages= flash_block unless @page_caching
+            = yield
+          %aside.span3.sidebar
+            = render "sidebar"
+    = javascript_include_tag "application"
+    = render "google_analytics"
+    = javascript_tag "$.getScript('#{update_caching_path("js")}');" if @page_caching
