@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 gem 'devise'
 gem 'activeadmin',  '>= 0.4.0'
 gem 'sass-rails',   '~> 3.2.0'
@@ -19,6 +19,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'rest-client'
+
+gem 'dalli'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
@@ -46,7 +48,6 @@ end
 
 group :production, :staging do
   gem 'pg'
-  gem 'dalli'
   gem 'aws-sdk'
 end
 
