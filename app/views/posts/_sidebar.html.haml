@@ -1,0 +1,8 @@
+- cache "tag_counts" do
+  %ul.nav.nav-list
+    - Post.published_tags.each do |tag|
+      %li{ :class => tag.name == params[:tag] ? "active" : nil }
+        %a{ :href => tag_posts_path(tag.name) }
+          %span.icon-tag
+          #{tag.name}(#{tag.count})
+= render "application/sidebar"

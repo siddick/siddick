@@ -1,0 +1,13 @@
+%article{:data => { :id => post.to_param, :"updated-at" => post.updated_at, :published => post.published.to_s } }
+  - unless @post
+    %header
+      .pull-right
+        %span.icon-tag
+        - post.tags.each do |tag|
+          = link_to tag.name, tag_posts_path(tag.name)
+        %span.icon-time
+        = post.published_at.strftime("%d, %b")
+      %h3
+        %span.icon-calendar
+        = link_to post.title, post
+  = post.content ? post.content.html_safe : post.raw_content

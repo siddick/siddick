@@ -26,4 +26,8 @@ class Post < ActiveRecord::Base
     self.archive_list = published_at.strftime("%Y, %Y-%m")
   end
 
+  def self.published_tags
+    published.tag_counts.order("count DESC")
+  end
+
 end
