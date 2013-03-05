@@ -12,11 +12,7 @@
     %header= render "topbar"
     .container
       .content
-        %header{:class => "page-header #{post_page_header_class}"}
-          - if content_for? :page_header
-            = yield :page_header
-          - else
-            %h1= title
+        = render "page_header"
         .row
           .span9.main
             #error_messages= flash_block unless @page_caching

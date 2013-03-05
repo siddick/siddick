@@ -1,0 +1,8 @@
+= simple_form_for @contact, :url => contact_path do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :message, :as => :text, :input_html => { :rows => 3, :class => "input-xlarge" }
+  = simple_form_recaptcha_tag @contact
+  .form-actions
+    = f.submit "Send Message", :class => "btn btn-primary"
+    = link_to "Cancel", root_path, :class => "btn"

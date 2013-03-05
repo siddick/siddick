@@ -1,0 +1,7 @@
+%header{:class => "page-header #{post_page_header_class}"}
+  - if content_for? :page_header
+    = yield :page_header
+  - else
+    %h1
+      %span.icon
+      = title
